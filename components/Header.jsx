@@ -6,7 +6,7 @@ import { useSession, signIn } from "next-auth/react";
 
 // import Cookies from "js-cookie";
 
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Header() {
   //   const [username, setUserName] = useState("");
@@ -21,7 +21,7 @@ export default function Header() {
   //     }
   //   }, []);
 
-  //   const cartItems = useSelector((state) => state.cart.cart);
+  const cartItems = useSelector((state) => state.cart.cart);
   const { data: session } = useSession();
   const router = useRouter();
   const { pathname } = router;
@@ -106,7 +106,7 @@ export default function Header() {
               </svg>
 
               <span className="text-black text-xs bg-[#c5ce9c] px-2 py-1 rounded-full">
-                0
+                {cartItems.length}
               </span>
             </Link>
           </div>
