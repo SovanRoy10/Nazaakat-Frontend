@@ -61,7 +61,7 @@ export default function Product(props) {
             props.title,
             props.description,
             props.price,
-            props.images[0]
+            props.images
           )
         }
         className="block w-full text-center align-middle transition-all  focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
