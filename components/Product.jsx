@@ -2,11 +2,13 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
 import "remixicon/fonts/remixicon.css";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 export default function Product(props) {
   const dispatch = useDispatch();
   const handleAddToCart = (id, title, description, price, image) => {
     dispatch(addToCart({ id, title, description, price, image }));
+    toast.success("Item added to cart")
   };
   return (
     <div className="m-5 shadow-md h-fit">
@@ -31,8 +33,10 @@ export default function Product(props) {
                   : props.title}
               </p>
               <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-                <span className="mr-2">₹{props.price.toFixed(2)}</span>
-                <s> ₹{props.price.toFixed(2)}</s>
+                <span className="mr-2">
+                  ₹{parseInt(props.price).toFixed(2)}
+                </span>
+                <s> ₹{parseInt(props.price).toFixed(2)}</s>
               </p>
             </div>
             <p className="font-sans text-sm font-normal leading-normal text-black antialiased opacity-95 flex justify-between ">
@@ -43,8 +47,7 @@ export default function Product(props) {
               </span>
               <span className="bg-green-600 text-white rounded-sm px-1 text-xs flex h-fit py-1 ">
                 {/* <span>{props.rating.toFixed(1)}</span>{" "} */}
-                <span>{4}</span>{" "}
-                <i className="ri-star-fill text-xs"></i>
+                <span>{4}</span> <i className="ri-star-fill text-xs"></i>
               </span>
             </p>
           </div>

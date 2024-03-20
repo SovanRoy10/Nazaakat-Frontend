@@ -2,6 +2,11 @@ import { mongooseConnect } from "@/lib/mongoose";
 import ProductPage from "@/components/Product";
 import { Product } from "@/models/Product";
 
+// Utility function to format price with a comma for thousands
+const formatPrice = (price) => {
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
 export default function AllProducts({ allProducts }) {
   if (allProducts) {
     return (
@@ -298,9 +303,9 @@ export default function AllProducts({ allProducts }) {
                       // console.log(product)
                       return (
                         <ProductPage
-                          key={index}
+                          key={product._id}
                           title={product.title}
-                          price={product.price}
+                          price={formatPrice(product.price)}
                           description={product.description}
                           images={product.images[0]}
                           // prevPrice={product.mrp}
