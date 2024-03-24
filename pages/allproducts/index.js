@@ -1,6 +1,7 @@
 import { mongooseConnect } from "@/lib/mongoose";
 import ProductPage from "@/components/Product";
 import { Product } from "@/models/Product";
+import Loader from "@/components/Loader";
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
@@ -327,6 +328,11 @@ export default function AllProducts({ allProducts }) {
       </div>
     );
   }
+  return (
+    <div className="flex items-center justify-center mt-20">
+      <Loader />
+    </div>
+  );
 }
 
 export async function getServerSideProps() {

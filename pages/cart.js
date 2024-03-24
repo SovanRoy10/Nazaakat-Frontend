@@ -25,7 +25,8 @@ export default function Cart({ btnText = "Checkout" }) {
       total += item.price;
     });
 
-    return total.toFixed(2);
+    // return total.toFixed(2);
+    return total;
   };
 
   if (cartItems.length === 0)

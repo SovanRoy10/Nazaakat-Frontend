@@ -8,8 +8,9 @@ export default function InstaVideo(props) {
           src={props.imageUrl}
           alt="Hero Images"
           priority
-          width={400}
-          height={400}
+          // width={400}
+          // height={400}
+          fill
         />
       </div>
     );
