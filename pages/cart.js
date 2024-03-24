@@ -2,6 +2,7 @@ import CartItem from "@/components/CartItem";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "@/features/cartSlice";
+import toast from "react-hot-toast";
 
 export default function Cart({ btnText = "Checkout" }) {
   const router = useRouter();
@@ -12,6 +13,7 @@ export default function Cart({ btnText = "Checkout" }) {
 
   const handleRemoveItem = (id) => {
     dispatch(removeFromCart(id));
+    toast.success("Item removed from cart")
   };
 
   const handleCheckout = () => {
