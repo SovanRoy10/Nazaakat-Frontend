@@ -31,7 +31,8 @@ export default function Cart({ btnText = "Checkout" }) {
   };
 
   const handleCheckout = () => {
-    router.push("/checkout?step=2");
+    if (btnText === "Checkout") router.push("/checkout?step=1");
+    if (btnText === "Payment") router.push("/checkout?step=2");
   };
 
   const calculateTotalPrice = (cartItems) => {

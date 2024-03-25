@@ -7,14 +7,13 @@ export default function CartItem(props) {
   // console.log(props.cart)
   const [quantity, setQuantity] = useState(0);
 
-  useEffect(()=>{
-    setQuantity(props.quantity)
-  },[props.quantity])
+  useEffect(() => {
+    setQuantity(props.quantity);
+  }, [props.quantity]);
 
   const handleAddQuantity = () => {
     setQuantity((prev) => prev + 1);
   };
-
 
   return (
     <div className="p-5 shadow-lg border rounded-md m-5">
@@ -32,15 +31,23 @@ export default function CartItem(props) {
             <p className="font-semibold">{props.cart.title}</p>
             <div className="flex text-2xl font-bold gap-3 border border-gray-400">
               <button
-                onClick={()=> props.handleRemoveOneItem(props.cart.id)}
-                disabled={quantity<=1}
+                onClick={() => props.handleRemoveOneItem(props.cart.id)}
+                disabled={quantity <= 1}
                 className="border-r px-2 border-gray-400 hover:bg-red-500 hover:text-white"
               >
                 -
               </button>
-              <p >{quantity}</p>
+              <p>{quantity}</p>
               <button
-                onClick={()=> props.handleAddToCart(props.cart.id,props.cart.title,props.cart.description,parseInt(props.cart.price),props.cart.image)}
+                onClick={() =>
+                  props.handleAddToCart(
+                    props.cart.id,
+                    props.cart.title,
+                    props.cart.description,
+                    parseInt(props.cart.price),
+                    props.cart.image
+                  )
+                }
                 className="border-l px-2 border-gray-400 hover:bg-green-500 hover:text-white"
               >
                 +
