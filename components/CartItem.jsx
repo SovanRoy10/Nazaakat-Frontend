@@ -4,7 +4,7 @@ import { IconButton } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
 export default function CartItem(props) {
-    // console.log(props.cart)
+  // console.log(props.cart)
   return (
     <div className="p-5 shadow-lg border rounded-md m-5">
       <div className=" flex items-center ">
@@ -17,7 +17,10 @@ export default function CartItem(props) {
         </div>
 
         <div className="ml-5 space-y-1">
-          <p className="font-semibold">{props.cart.title}</p>
+          <div className="flex justify-between">
+            <p className="font-semibold">{props.cart.title}</p>
+            <p className="text-3xl font-bold">X {props.quantity}</p>
+          </div>
           <p className="opacity-70">{props.cart.description}</p>
           <div className="flex space-x-3 items-center ">
             <p className="text-2xl tracking-tight text-gray-900 mt-5">

@@ -49,6 +49,7 @@ export default function Cart({ btnText = "Checkout" }) {
                 key={`${item.id}-${index}`}
                 cart={item}
                 handleRemoveItem={handleRemoveItem}
+                quantity ={cartItems.filter(id=> id === item.id).length}
               />
             );
           })}
