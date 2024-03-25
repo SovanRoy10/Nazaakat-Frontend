@@ -1,6 +1,7 @@
-import React from "react";
+
 
 export default function AddressCard() {
+
   return (
     <div>
       <div className="space-y-3">
