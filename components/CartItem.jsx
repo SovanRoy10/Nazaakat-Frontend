@@ -1,10 +1,21 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import { IconButton } from "@mui/material";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
 export default function CartItem(props) {
   // console.log(props.cart)
+  const [quantity, setQuantity] = useState(0);
+
+  useEffect(()=>{
+    setQuantity(props.quantity)
+  },[props.quantity])
+
+  const handleAddQuantity = () => {
+    setQuantity((prev) => prev + 1);
+  };
+
+
   return (
     <div className="p-5 shadow-lg border rounded-md m-5">
       <div className=" flex items-center ">
@@ -19,7 +30,22 @@ export default function CartItem(props) {
         <div className="ml-5 space-y-1">
           <div className="flex justify-between">
             <p className="font-semibold">{props.cart.title}</p>
-            <p className="text-3xl font-bold">X {props.quantity}</p>
+            <div className="flex text-2xl font-bold gap-3 border border-gray-400">
+              <button
+                onClick={()=> props.handleRemoveOneItem(props.cart.id)}
+                disabled={quantity<=1}
+                className="border-r px-2 border-gray-400 hover:bg-red-500 hover:text-white"
+              >
+                -
+              </button>
+              <p >{quantity}</p>
+              <button
+                onClick={()=> props.handleAddToCart(props.cart.id,props.cart.title,props.cart.description,parseInt(props.cart.price),props.cart.image)}
+                className="border-l px-2 border-gray-400 hover:bg-green-500 hover:text-white"
+              >
+                +
+              </button>
+            </div>
           </div>
           <p className="opacity-70">{props.cart.description}</p>
           <div className="flex space-x-3 items-center ">

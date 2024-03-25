@@ -1,7 +1,11 @@
 import CartItem from "@/components/CartItem";
 import { useRouter } from "next/router";
 import { useSelector, useDispatch } from "react-redux";
-import { removeFromCart } from "@/features/cartSlice";
+import {
+  removeFromCart,
+  addToCart,
+  removeOneFromCart,
+} from "@/features/cartSlice";
 import toast from "react-hot-toast";
 
 export default function Cart({ btnText = "Checkout" }) {
@@ -11,13 +15,22 @@ export default function Cart({ btnText = "Checkout" }) {
 
   const dispatch = useDispatch();
 
+  const handleAddToCart = (id, title, description, price, image) => {
+    dispatch(addToCart({ id, title, description, price, image }));
+    toast.success("Item added to cart");
+  };
+
+  const handleRemoveOneItem = (id) => {
+    dispatch(removeOneFromCart(id));
+    toast.success("One item removed from cart");
+  };
+
   const handleRemoveItem = (id) => {
     dispatch(removeFromCart(id));
-    toast.success("Item removed from cart")
+    toast.success("Item removed from cart");
   };
 
   const handleCheckout = () => {
-    // nagivate("/checkout?step=2");
     router.push("/checkout?step=2");
   };
 
@@ -38,18 +51,25 @@ export default function Cart({ btnText = "Checkout" }) {
       </p>
     );
 
+  const distinctProductIds = [...new Set(cartItems.map((item) => item.id))];
+
   return (
     <div className="mt-5">
       <div className="lg:grid grid-cols-3  relative">
         <div className="col-span-2">
-          {cartItems.map((item, index) => {
-            // return <CartItem key={item.id} cart={item} handleRemoveItem = {handleRemoveItem}/>;   // version 2
+          {distinctProductIds.map((productId, index) => {
+            const item = cartItems.find((item) => item.id === productId);
+            if (!item) return null;
             return (
               <CartItem
                 key={`${item.id}-${index}`}
                 cart={item}
                 handleRemoveItem={handleRemoveItem}
-                quantity ={cartItems.filter(id=> id === item.id).length}
+                handleRemoveOneItem={handleRemoveOneItem}
+                handleAddToCart={handleAddToCart}
+                quantity={
+                  cartItems.filter((cartItem) => cartItem.id === item.id).length
+                }
               />
             );
           })}
