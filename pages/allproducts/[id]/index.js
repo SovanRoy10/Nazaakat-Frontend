@@ -70,6 +70,7 @@ export default function ProductDetails({ product }) {
   // console.log(product);
   const dispatch = useDispatch();
   const handleAddToCart = (id, title, description, price, image) => {
+    price = parseInt(price);
     dispatch(addToCart({ id, title, description, price, image }));
   };
 
@@ -319,12 +320,12 @@ export default function ProductDetails({ product }) {
                 </div> */}
 
               <div className="mt-10">
-                  <h2 className="text-base font-bold text-gray-900">Details</h2>
-  
-                  <div className="mt-4 space-y-6">
-                    <p className="text-base text-gray-600">{product.details}</p>
-                  </div>
+                <h2 className="text-base font-bold text-gray-900">Details</h2>
+
+                <div className="mt-4 space-y-6">
+                  <p className="text-base text-gray-600">{product.details}</p>
                 </div>
+              </div>
             </div>
           </div>
         </section>

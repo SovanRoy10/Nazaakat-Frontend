@@ -84,13 +84,17 @@ export default function CartItem(props) {
           </IconButton>
         </div> */}
 
-        <div>
+        <div className="flex  items-center gap-5">
           <button
             onClick={() => props.handleRemoveItem(props.cart.id)}
             className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-500"
           >
             Remove
           </button>
+
+          <p className="font-bold text-lg text-gray-700 border border-black p-1">
+            Total : {quantity * props.cart.price}
+          </p>
         </div>
       </div>
     </div>

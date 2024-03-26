@@ -7,8 +7,9 @@ import toast from "react-hot-toast";
 export default function Product(props) {
   const dispatch = useDispatch();
   const handleAddToCart = (id, title, description, price, image) => {
+    price = parseInt(price);
     dispatch(addToCart({ id, title, description, price, image }));
-    toast.success("Item added to cart")
+    toast.success("Item added to cart");
   };
   return (
     <div className="m-5 shadow-md h-fit">

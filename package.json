@@ -30,6 +30,7 @@
     "react-spinners": "^0.13.8",
     "redux-persist": "^6.0.0",
     "remixicon": "^4.2.0",
+    "stripe": "^14.22.0",
     "swiper": "^11.0.7",
     "tailwind-merge": "^2.2.2"
   },
