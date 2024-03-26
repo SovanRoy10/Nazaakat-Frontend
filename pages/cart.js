@@ -43,6 +43,14 @@ export default function Cart({ btnText = "Checkout" }) {
     // return total.toFixed(2);
     return total;
   };
+  if (window.location.href.includes("success")) {
+    return (
+      <div className="text-3xl text-center flex flex-col gap-10 my-16">
+        <p className="font-bold">Thanks for your order! 🎉</p>
+        <p>We will call/email you when your order will be sent.</p>
+      </div>
+    );
+  }
 
   if (cartItems.length === 0)
     return (
