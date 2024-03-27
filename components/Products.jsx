@@ -11,7 +11,7 @@ export default function Products({ products }) {
         <img
           src="https://iili.io/J2NU3S1.png"
           alt="leftFooter"
-          className="lg:w-48  drop-shadow-lg w-24"
+          className="lg:w-48  drop-shadow-lg w-20"
         />
         <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[25px]">
           Our Best Sellers
@@ -19,7 +19,7 @@ export default function Products({ products }) {
         <img
           src="https://iili.io/J2NUoVR.png"
           alt=""
-          className="lg:w-48  drop-shadow-lg w-24"
+          className="lg:w-48  drop-shadow-lg w-20"
         />
       </div>
 
