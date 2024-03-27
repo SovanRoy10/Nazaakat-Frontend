@@ -12,7 +12,7 @@ import HeadingText from './HeadingText.jsx'
 export default function Team() {
   return (
     <div className='my-10'>
-      <HeadingText text='Our Team' width="28"/>
+      <HeadingText text='Our Team' width="24"/>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
