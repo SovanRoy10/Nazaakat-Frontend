@@ -17,6 +17,15 @@ import { addToCart } from "@/features/cartSlice";
 
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
+import { Category } from "@/models/Category";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
 const product = {
   name: "Basic Tee 6-Pack",
@@ -66,7 +75,7 @@ const product = {
 //   return classes.filter(Boolean).join(" ");
 // }
 
-export default function ProductDetails({ product }) {
+export default function ProductDetails({ product, category }) {
   // console.log(product);
   const dispatch = useDispatch();
   const handleAddToCart = (id, title, description, price, image) => {
@@ -78,40 +87,27 @@ export default function ProductDetails({ product }) {
   // const [loading, setLoading] = useState(false);
   const [detailedProduct, setDetailedProduct] = useState({});
 
-  // useEffect(() => {
-  //   const fetchProduct = async () => {
-  //     setLoading(true);
-  //     try {
-  //       const response = await axios.get(`/api/v1/product/getproduct/${id}`);
-  //       if (response.status === 200) {
-  //         // console.log(response.data.data);
-  //         setDetailedProduct(response.data.data);
-  //         setCoverImage(response.data.data.imageUrl[0]);
-  //         setLoading(false);
-  //       } else {
-  //         alert("Cannot get product");
-  //       }
-  //     } catch (error) {
-  //       console.error("Cannot get Product", error);
-  //     }
-  //   };
-  //   fetchProduct();
-  // }, []);
-
-  // const [selectedColor, setSelectedColor] = useState(product.colors[0]);
-
-  // const navigate = useNavigate();
-
-  // const handleToCart = () => {
-  //   navigate("/cart");
-  // };
-
   const handleCoverImage = (image) => {
     setCoverImage(image);
   };
 
   // if (loading) return <Loader />;
   // else {
+
+  const fixSizes = (size) => {
+    size = size.toLowerCase();
+    if (size === "s" || size === "small") return "S";
+    if (size === "m" || size === "medium") return "M";
+    if (size === "l" || size === "large") return "L";
+    if (size === "xl" || size === "extra large") return "XL";
+    if (size === "xxl" || size === "extra extra large") return "XXL";
+    // Handle invalid sizes
+    return "I";
+  };
+
+  const sizes = product.sizes.split(",").map((size) => fixSizes(size));
+  const colors = product.colors.split(",");
+
   return (
     <div>
       <div className="pt-6">
@@ -122,7 +118,7 @@ export default function ProductDetails({ product }) {
           >
             <li className="font-medium text-gray-500 hover:text-gray-600 text-sm">
               <a href="#" className="mr-2 text-sm font-medium text-gray-900">
-                men
+                {product.gender}
               </a>
             </li>
             <svg
@@ -137,7 +133,7 @@ export default function ProductDetails({ product }) {
             </svg>
             <li className="font-medium text-gray-500 hover:text-gray-600 text-sm">
               <a href="#" className="mr-2 text-sm font-medium text-gray-900">
-                category example
+                {category.name}
               </a>
             </li>
             <svg
@@ -158,7 +154,7 @@ export default function ProductDetails({ product }) {
 
         <section className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 pt-10 px-4">
           {/* {image gallary} */}
-          <div className="flex flex-col items-center">
+          <div className="md:flex flex-col items-center hidden">
             <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem] drop-shadow-md">
               {product && product.images && product.images.length > 0 && (
                 <img
@@ -169,7 +165,7 @@ export default function ProductDetails({ product }) {
               )}
             </div>
 
-            <div className="flex flex-wrap space-x-5 justify-center">
+            <div className="flex-wrap space-x-5 justify-center flex">
               {product &&
                 product.images &&
                 product.images.map((item, index) => (
@@ -186,6 +182,36 @@ export default function ProductDetails({ product }) {
                   </div>
                 ))}
             </div>
+          </div>
+
+          <div className="md:hidden block">
+            <Swiper
+              navigation={true}
+              slidesPerView={1}
+              spaceBetween={30}
+              loop={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper z-0"
+            >
+              {product &&
+                product.images &&
+                product.images.map((item, index) => {
+                  return (
+                    <SwiperSlide key={index}>
+                      <div
+                        className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg  mt-4 drop-shadow-md"
+                        key={index}
+                      >
+                        <img
+                          src={item}
+                          alt={item}
+                          className="h-full w-full object-cover object-center cursor-pointer"
+                        />
+                      </div>
+                    </SwiperSlide>
+                  );
+                })}
+            </Swiper>
           </div>
 
           {/* {product details} */}
@@ -318,6 +344,22 @@ export default function ProductDetails({ product }) {
                     </ul>
                   </div>
                 </div> */}
+
+              <div id="sizes" className="text-xl font-bold mt-5">
+                Size :
+                <div  className="flex gap-5 py-3">
+                  {sizes.map((size, index) => {
+                    return (
+                      <div
+                        key={size}
+                        className="font-bold  border border-black px-3 py-1 rounded text-base hover:bg-gray-300"
+                      >
+                        {size}
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
 
               <div className="mt-10">
                 <h2 className="text-base font-bold text-gray-900">Details</h2>
@@ -470,10 +512,15 @@ export async function getServerSideProps(context) {
   await mongooseConnect();
   const { id } = context.query;
   const product = await Product.findById({ _id: id });
+  const categoryId = product.category;
+  // console.log(typeof categoryId)
+  const category = await Category.findById({ _id: categoryId });
+  // console.log(category.name)
 
   return {
     props: {
       product: JSON.parse(JSON.stringify(product)),
+      category: JSON.parse(JSON.stringify(category)),
     },
   };
 }

@@ -15,32 +15,32 @@ export default function Product(props) {
     <div className="m-5 shadow-md h-fit">
       <Link href={`/allproducts/${props.id}`}>
         <div
-          className={`relative flex  w-${props.width} flex-col rounded-t-xl bg-white bg-clip-border text-gray-700`}
+          className={`relative flex  w-${props.width} md:flex-col rounded-t-xl bg-white bg-clip-border text-gray-700`}
         >
           <div
             className={`relative mx-4 mt-4 h-${props.height}  overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700  flex items-center justify-center`}
           >
             <img
               src={props.images}
-              className=" object-cover hover:scale-110  duration-200 h-[300px] object-center max-w-[300px] min-w-[250px]"
+              className=" object-cover hover:scale-110  duration-200 md:h-[300px] object-center md:max-w-[300px] md:min-w-[250px] min-w-[130px]"
               alt="product"
             />
           </div>
           <div className="p-6">
-            <div className="mb-2 flex items-center justify-between">
+            <div className="mb-2 flex flex-col justify-between">
               <p className="block font-sans text-base font-medium l   eading-relaxed text-blue-gray-900 antialiased">
-                {props.title.length > 20
-                  ? `${props.title.substring(0, 20)}...`
+                {props.title.length > 36
+                  ? `${props.title.substring(0, 36)}...`
                   : props.title}
               </p>
-              <p className="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
+              <p className=" font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased flex md:gap-5 gap-2">
                 <span className="mr-2">
                   ₹{parseInt(props.price).toFixed(2)}
                 </span>
                 <s> ₹{parseInt(props.price).toFixed(2)}</s>
               </p>
             </div>
-            <p className="font-sans text-sm font-normal leading-normal text-black antialiased opacity-95 flex justify-between ">
+            <p className="font-sans text-xs md:text-sm font-normal leading-normal text-black antialiased opacity-95 flex justify-between ">
               <span>
                 {props.description.length > 70
                   ? `${props.description.substring(0, 70)}...`
@@ -52,7 +52,6 @@ export default function Product(props) {
               </span>
             </p>
           </div>
-          <div className="p-6 pt-0"></div>
         </div>
       </Link>
       <button

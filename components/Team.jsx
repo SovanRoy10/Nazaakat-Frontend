@@ -9,10 +9,10 @@ import 'swiper/css/navigation';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import HeadingText from './HeadingText.jsx'
 
-export default function App() {
+export default function Team() {
   return (
     <div className='my-10'>
-      <HeadingText text='Our Team' width="32"/>
+      <HeadingText text='Our Team' width="28"/>
       <Swiper
         spaceBetween={30}
         centeredSlides={true}

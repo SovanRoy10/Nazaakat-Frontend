@@ -13,7 +13,7 @@ export default function Products({ products }) {
           alt="leftFooter"
           className="lg:w-48  drop-shadow-lg w-24"
         />
-        <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[30px]">
+        <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[27px]">
           Our Best Sellers
         </h1>
         <img

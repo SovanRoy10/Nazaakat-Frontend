@@ -139,21 +139,21 @@ export default function AllProducts({ allProducts }) {
           </Dialog>
         </Transition.Root> */}
 
-          <main className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <main className="mx-auto max-w-7xl  lg:px-8">
             <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10">
               <div className="footerImage flex  items-center justify-between gap-1 mx-auto">
                 <img
                   src="https://iili.io/J2NU3S1.png"
                   alt="leftFooter"
-                  className="lg:w-48 drop-shadow-lg w-[5.9rem]"
+                  className="lg:w-48  drop-shadow-lg w-20"
                 />
-                <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[30px]">
+                <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[28px]">
                   Our Collection
                 </h1>
                 <img
                   src="https://iili.io/J2NUoVR.png"
                   alt=""
-                  className="lg:w-48  drop-shadow-lg w-[5.9rem]"
+                  className="lg:w-48  drop-shadow-lg w-20"
                 />
               </div>
 
@@ -216,15 +216,15 @@ export default function AllProducts({ allProducts }) {
 
             <section
               aria-labelledby="products-heading"
-              className="pb-24 pt-6 overflow-hidden"
+              className="md:pb-24 pt-6 overflow-hidden"
             >
-              <h2 id="products-heading" className="sr-only">
+              {/* <h2 id="products-heading" className="sr-only">
                 Products
-              </h2>
+              </h2> */}
 
               <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6">
                 {/* Filters */}
-                <form className="hidden lg:block border-r-2 border-gray-200 pr-5">
+                <form className="hidden lg:block border-r-2 border-gray-200 md:pr-5">
                   {/* <h3 className="font-bold underline underline-offset-2 ">
                   Categories
                 </h3> */}
@@ -300,7 +300,7 @@ export default function AllProducts({ allProducts }) {
 
                 {/* Product grid */}
                 <div className="lg:col-span-5">
-                  <div className="grid md:grid-cols-3 md:grid-rows-3  ">
+                  <div className="grid md:grid-cols-3 md:grid-rows-3 ">
                     {allProducts.map((product, index) => {
                       // console.log(product)
                       return (
