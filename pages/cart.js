@@ -5,8 +5,10 @@ import {
   removeFromCart,
   addToCart,
   removeOneFromCart,
+  clearCart
 } from "@/features/cartSlice";
 import toast from "react-hot-toast";
+import { useEffect } from "react";
 
 export default function Cart({ btnText = "Checkout" }) {
   const router = useRouter();
@@ -43,7 +45,16 @@ export default function Cart({ btnText = "Checkout" }) {
     // return total.toFixed(2);
     return total;
   };
-  if (window.location.href.includes("success")) {
+
+
+  useEffect(()=>{
+    if(typeof window === undefined) return;
+    if (window.location.href.includes("success")){
+      dispatch(clearCart());
+    }
+  },[])
+
+  if (typeof window!=='undefined' && window.location.href.includes("success")) {
     return (
       <div className="text-3xl text-center flex flex-col gap-10 my-16">
         <p className="font-bold">Thanks for your order! 🎉</p>

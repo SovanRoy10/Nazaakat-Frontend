@@ -5,7 +5,8 @@ import Loader from "@/components/Loader";
 
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
-  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  // return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  return price;
 };
 
 export default function AllProducts({ allProducts }) {
