@@ -42,7 +42,7 @@ export default function Header() {
         <Link href="/" className="flex items-center mr-2">
           <Image
             src="https://iili.io/JJV0UkN.jpg"
-            className="h-9 md:h-12 mr-1 md:mr-3 rounded-full border-2 border-green-600 p-[1.3px]"
+            className="h-9 w-9 md:w-auto md:h-12 mr-1 md:mr-3 rounded-full border-2 border-green-600 p-[1.3px]"
             alt="logo"
             width={47}
             height={36}
@@ -79,7 +79,7 @@ export default function Header() {
             onClick={toggleMobileNav}
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-8 h-8 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 w-7 h-7 md:w-8 md:h-8 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
@@ -106,7 +106,7 @@ export default function Header() {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className={`w-6 h-6 ${
+                className={`w-5 h-5 md:w-6 md:h-6 ${
                   pathname === "/cart" ? "text-blue-500" : "text-white"
                 }`}
               >
