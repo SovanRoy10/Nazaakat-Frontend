@@ -18,7 +18,7 @@ export default function CartItem(props) {
   return (
     <div className="p-5 shadow-lg border rounded-md m-5">
       <div className=" flex items-center ">
-        <div className="w-[5rem] h-[5rem] lg:w-[9rem] lg:h-[9rem]">
+        <div className="md:w-[5rem] md:h-[5rem] lg:w-[9rem] lg:h-[9rem]">
           <img
             src={props.cart.image}
             alt="photo"
@@ -27,13 +27,13 @@ export default function CartItem(props) {
         </div>
 
         <div className="ml-5 space-y-1">
-          <div className="flex justify-between">
-            <p className="font-semibold">{props.cart.title}</p>
-            <div className="flex text-2xl font-bold gap-3 border border-gray-400">
+          <div className="flex justify-between flex-col md:flex-row">
+            <p className="font-semibold text-sm md:text-base">{props.cart.title}</p>
+            <div className="flex  font-bold gap-3 border border-gray-400 items-center w-fit text-sm md:text-2xl my-2 md:my-0">
               <button
                 onClick={() => props.handleRemoveOneItem(props.cart.id)}
                 disabled={quantity <= 1}
-                className="border-r px-2 border-gray-400 hover:bg-red-500 hover:text-white"
+                className="border-r px-2 border-gray-400 hover:bg-red-500 hover:text-white "
               >
                 -
               </button>
@@ -54,15 +54,15 @@ export default function CartItem(props) {
               </button>
             </div>
           </div>
-          <p className="opacity-70">{props.cart.description}</p>
+          <p className="opacity-70 text-xs md:text-sm">{props.cart.description}</p>
           <div className="flex space-x-3 items-center ">
-            <p className="text-2xl tracking-tight text-gray-900 mt-5">
+            <p className="md:text-2xl tracking-tight text-gray-900 mt-5">
               ₹{props.cart.price}
             </p>
-            <s className="text-2xl tracking-tight text-gray-900 mt-5 opacity-60 ">
+            <s className="md:text-2xl tracking-tight text-gray-900 mt-5 opacity-60 ">
               ₹{props.cart.prevPrice}
             </s>
-            <p className="text-xl text-green-600 mt-5 tracking-tighter">
+            <p className="md:text-xl text-green-600 mt-5 tracking-tighter">
               {props.cart.offer} % Off
             </p>
           </div>
@@ -84,7 +84,7 @@ export default function CartItem(props) {
           </IconButton>
         </div> */}
 
-        <div className="flex  items-center gap-5">
+        <div className="flex  items-center gap-5 text-xs md:text-base">
           <button
             onClick={() => props.handleRemoveItem(props.cart.id)}
             className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-500"
@@ -92,7 +92,7 @@ export default function CartItem(props) {
             Remove
           </button>
 
-          <p className="font-bold text-lg text-gray-700 border border-black p-1">
+          <p className="font-bold md:text-lg text-gray-700 border border-black p-1">
             Total : {quantity * props.cart.price}
           </p>
         </div>

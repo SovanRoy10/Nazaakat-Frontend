@@ -9,7 +9,7 @@ import DeliveryAddressForm from "@/components/DeliveryAddressForm";
 const steps = ["Login", "Delivery address", "Payment"];
 
 export default function CheckOut() {
-  const [activeStep, setActiveStep] = React.useState(0);
+  // const [activeStep, setActiveStep] = React.useState(0);
   const router = useRouter();
   // console.log(typeof router.query.step)
 

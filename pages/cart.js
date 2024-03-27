@@ -65,7 +65,7 @@ export default function Cart({ btnText = "Checkout" }) {
 
   if (cartItems.length === 0)
     return (
-      <p className="text-3xl text-center py-16 font-bold">
+      <p className="text-xl md:text-3xl text-center py-16 font-bold">
         Oops ! The cart is empty now 😔{" "}
       </p>
     );
@@ -98,7 +98,7 @@ export default function Cart({ btnText = "Checkout" }) {
           <div className="border mt-5 p-3">
             <div className="flex flex-col justify-center items-center">
               <p
-                className={`uppercase transparentHeading text-5xl hover:text-gray-800 `}
+                className={`uppercase transparentHeading text-4xl md:text-5xl hover:text-gray-800 `}
               >
                 Price Details
               </p>

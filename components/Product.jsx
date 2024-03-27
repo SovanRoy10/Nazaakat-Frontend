@@ -15,14 +15,14 @@ export default function Product(props) {
     <div className="m-5 shadow-md h-fit">
       <Link href={`/allproducts/${props.id}`}>
         <div
-          className={`relative flex  w-${props.width} md:flex-col rounded-t-xl bg-white bg-clip-border text-gray-700`}
+          className={`relative flex w-${props.width} md:flex-col rounded-t-xl bg-white bg-clip-border text-gray-700`}
         >
           <div
             className={`relative mx-4 mt-4 h-${props.height}  overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700  flex items-center justify-center`}
           >
             <img
               src={props.images}
-              className=" object-cover hover:scale-110  duration-200 md:h-[300px] object-center md:max-w-[300px] md:min-w-[250px] min-w-[130px]"
+              className=" object-cover hover:scale-110  duration-200 md:h-[300px] object-center md:max-w-[300px] md:min-w-[250px] min-w-[123px]"
               alt="product"
             />
           </div>
