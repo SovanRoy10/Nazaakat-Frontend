@@ -200,7 +200,7 @@ model-viewer {
 .elem1 h1 {
   display: flex;
   gap: 20px;
-  font-size: 45px;
+  /* font-size: 45px; */
 }
 
 .elem1 h1 span {

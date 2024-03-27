@@ -6,7 +6,7 @@ import { useState } from "react";
 export default function Products({ products }) {
   // console.log(products)
   return (
-    <div className="flex flex-col justify-center items-center mt-20 overflow-hidden">
+    <div className="flex flex-col justify-center items-center mt-10 md:mt-20 overflow-hidden">
       <div className="footerImage flex  items-center justify-between gap-1">
         <img
           src="https://iili.io/J2NU3S1.png"

@@ -1,4 +1,3 @@
-
 import { gsap } from "gsap";
 import { useEffect } from "react";
 
@@ -113,21 +112,21 @@ export default function TextGoing() {
       stripe.addEventListener("mousemove", function () {
         gsap.to(stripe.children[0], {
           height: "100%",
-        //   ease: Expo,
+          //   ease: Expo,
           duration: 0.3,
           // delay: .1
         });
 
         gsap.to(stripe.children[1], {
           opacity: 0,
-        //   ease: Expo,
+          //   ease: Expo,
           duration: 0.3,
           delay: 0.1,
         });
 
         gsap.to(stripe.children[0].children[0], {
           opacity: 1,
-        //   ease: Expo,
+          //   ease: Expo,
           duration: 0.1,
           // delay: .1
         });
@@ -136,19 +135,19 @@ export default function TextGoing() {
       stripe.addEventListener("mouseleave", function () {
         gsap.to(stripe.children[0], {
           height: "0%",
-        //   ease: Expo,
+          //   ease: Expo,
           duration: 0.3,
         });
 
         gsap.to(stripe.children[1], {
           opacity: 1,
-        //   ease: Expo,
+          //   ease: Expo,
           duration: 0.3,
           delay: 0.1,
         });
         gsap.to(stripe.children[0].children[0], {
           opacity: 0,
-        //   ease: Expo,
+          //   ease: Expo,
           duration: 0.1,
           // delay: .1
         });
@@ -168,7 +167,7 @@ export default function TextGoing() {
                   alt=""
                 />
               </div>
-              <h1>
+             <h1 className="text-lg md:text-[45px]">
                 Offer 15% off <span>14</span>{" "}
               </h1>
             </div>
@@ -179,7 +178,7 @@ export default function TextGoing() {
                   alt=""
                 />
               </div>
-              <h1>
+             <h1 className="text-lg md:text-[45px]">
                 Offer 15% off <span>14</span>{" "}
               </h1>
             </div>
@@ -190,7 +189,7 @@ export default function TextGoing() {
                   alt=""
                 />
               </div>
-              <h1>
+             <h1 className="text-lg md:text-[45px]">
                 Offer 15% off <span>14</span>{" "}
               </h1>
             </div>
@@ -201,7 +200,7 @@ export default function TextGoing() {
                   alt=""
                 />
               </div>
-              <h1>
+             <h1 className="text-lg md:text-[45px]">
                 Offer 15% off <span>14</span>{" "}
               </h1>
             </div>
@@ -212,7 +211,7 @@ export default function TextGoing() {
                   alt=""
                 />
               </div>
-              <h1>
+             <h1 className="text-lg md:text-[45px]">
                 Offer 15% off <span>14</span>{" "}
               </h1>
             </div>
@@ -226,7 +225,7 @@ export default function TextGoing() {
                 alt=""
               />
             </div>
-            <h1>
+           <h1 className="text-lg md:text-[45px]">
               Offer 15% off <span>14</span>{" "}
             </h1>
           </div>
@@ -237,7 +236,7 @@ export default function TextGoing() {
                 alt=""
               />
             </div>
-            <h1>
+           <h1 className="text-lg md:text-[45px]">
               Offer 15% off <span>14</span>{" "}
             </h1>
           </div>
@@ -248,7 +247,7 @@ export default function TextGoing() {
                 alt=""
               />
             </div>
-            <h1>
+           <h1 className="text-lg md:text-[45px]">
               Offer 15% off <span>14</span>{" "}
             </h1>
           </div>
@@ -259,7 +258,7 @@ export default function TextGoing() {
                 alt=""
               />
             </div>
-            <h1>
+           <h1 className="text-lg md:text-[45px]">
               Offer 15% off <span>14</span>{" "}
             </h1>
           </div>
@@ -270,7 +269,7 @@ export default function TextGoing() {
                 alt=""
               />
             </div>
-            <h1>
+           <h1 className="text-lg md:text-[45px]">
               Offer 15% off <span>14</span>{" "}
             </h1>
           </div>
