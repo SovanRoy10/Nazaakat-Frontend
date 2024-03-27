@@ -39,7 +39,7 @@ export default function Header() {
   return (
     <nav className="text-lg w-full z-20 top-0 left-0 border-b border-gray-200  sticky bg-gray-900 ">
       <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-        <Link href="/" className="flex items-center">
+        <Link href="/" className="flex items-center mr-2">
           <Image
             src="https://iili.io/JJV0UkN.jpg"
             className="h-9 md:h-12 mr-1 md:mr-3 rounded-full border-2 border-green-600 p-[1.3px]"
@@ -54,7 +54,7 @@ export default function Header() {
 
         <div className="flex md:order-2 items-center gap-5">
           {session ? (
-            <span className="text-white flex gap-2 items-center text-sm md:text-base">
+            <span className="text-white flex gap-2 items-center text-xs md:text-base">
               <Image
                 src={session.user.image}
                 alt=""
