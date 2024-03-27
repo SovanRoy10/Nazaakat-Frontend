@@ -157,7 +157,7 @@ export default function TextGoing() {
   }, []);
 
   return (
-    <div id="main" className="mt-12">
+    <div id="main" className="mt-12 overflow-hidden">
       <div className="stripe">
         <div className="stripe2">
           <div className="bgContainer">
