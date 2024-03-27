@@ -78,7 +78,7 @@ export default function Contact() {
       </div>
 
       <div className="mx-auto my-10 address flex flex-col items-center">
-        <HeadingText text="Our Address" width="24" />
+        <HeadingText text="Our Address" width="20" />
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3683.871566587419!2d88.4002843!3d22.5839064!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0275d5802bfbcf%3A0x662f5639dc18fb1a!2sPaying%20Guest%20SaltLake%20%2F%20Rooms%20for%20Rent%20Salt%20Lake!5e0!3m2!1sen!2sin!4v1696931519383!5m2!1sen!2sin"
           style={{ width: "100vw", height: "80vh" }} // Set width to 100% of viewport width and height to 80% of viewport height
