@@ -3,8 +3,11 @@ import { addToCart } from "../features/cartSlice";
 import "remixicon/fonts/remixicon.css";
 import Link from "next/link";
 import toast from "react-hot-toast";
+import { useRouter } from "next/router";
 
 export default function Product(props) {
+  const router = useRouter();
+  const {pathname} = router;
   const dispatch = useDispatch();
   const handleAddToCart = (id, title, description, price, image) => {
     price = parseInt(price);
@@ -22,7 +25,7 @@ export default function Product(props) {
           >
             <img
               src={props.images}
-              className=" object-cover hover:scale-110  duration-200 md:h-[300px] object-center md:max-w-[300px] md:min-w-[250px]"
+              className={` object-cover hover:scale-110  duration-200 md:h-[300px] object-center md:max-w-[300px] md:min-w-[250px] ${pathname==="/allproducts"? undefined:"min-w-[130px]"}`}
               alt="product"
             />
           </div>

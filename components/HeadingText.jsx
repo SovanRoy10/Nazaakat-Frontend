@@ -7,7 +7,7 @@ export default function HeadingText(props) {
           alt="leftFooter"
           className={`lg:w-48  drop-shadow-lg w-${props.width}`}
         />
-        <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[30px]">
+        <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[28px]">
           {props.text}
         </h1>
         <img
