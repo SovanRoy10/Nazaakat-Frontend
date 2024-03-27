@@ -22,7 +22,7 @@ export default function Product(props) {
           >
             <img
               src={props.images}
-              className=" object-cover hover:scale-110  duration-200 md:h-[300px] object-center md:max-w-[300px] md:min-w-[250px] min-w-[123px]"
+              className=" object-cover hover:scale-110  duration-200 md:h-[300px] object-center md:max-w-[300px] md:min-w-[250px] min-w-[115px]"
               alt="product"
             />
           </div>
