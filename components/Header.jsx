@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { useSession, signIn } from "next-auth/react";
+import { useState } from "react";
 
 // import Cookies from "js-cookie";
 
@@ -26,34 +26,39 @@ export default function Header() {
   const router = useRouter();
   const { pathname } = router;
 
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const toggleMobileNav = () => {
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
   const active =
     "block py-2 pl-3 pr-4  hover:text-blue-600 md:p-0 text-blue-700";
   const inactive =
     "block py-2 pl-3 pr-4  hover:text-blue-600 md:p-0 text-white";
 
   return (
-    <nav className="text-lg w-full z-20 top-0 left-0 border-b border-gray-200  overflow-hidden sticky bg-gray-900 ">
-      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <nav className="text-lg w-full z-20 top-0 left-0 border-b border-gray-200  sticky bg-gray-900 ">
+      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
         <Link href="/" className="flex items-center">
           <Image
             src="https://iili.io/JJV0UkN.jpg"
-            className="h-9 md:h-12 mr-3 rounded-full border-2 border-green-600 p-[1.3px]"
+            className="h-9 md:h-12 mr-1 md:mr-3 rounded-full border-2 border-green-600 p-[1.3px]"
             alt="logo"
             width={47}
             height={36}
           />
-          <span className="self-center md:text-2xl font-semibold whitespace-nowrap textBackground">
+          <span className="self-center text-sm md:text-2xl font-semibold whitespace-nowrap textBackground">
             Nazaakat
           </span>
         </Link>
 
         <div className="flex md:order-2 items-center gap-5">
           {session ? (
-            <span className="text-white flex gap-2 items-center">
+            <span className="text-white flex gap-2 items-center text-sm md:text-base">
               <Image
                 src={session.user.image}
                 alt=""
-                className="w-8 rounded-full"
+                className="w-7 md:w-8 rounded-full"
                 width={40}
                 height={40}
               />
@@ -71,9 +76,10 @@ export default function Header() {
             // </Link>
           )}
           <button
+            onClick={toggleMobileNav}
             data-collapse-toggle="navbar-sticky"
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+            className="inline-flex items-center p-2 w-8 h-8 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="navbar-sticky"
             aria-expanded="false"
           >
@@ -164,6 +170,52 @@ export default function Header() {
             </li>
           </ul>
         </div>
+
+        {/* Mobile navigation links */}
+        {isMobileNavOpen && (
+          <div className="md:hidden absolute top-16 right-0 bg-gray-900  rounded shadow-lg pl-6 pr-14 py-7 text-lg">
+            <ul className="flex flex-col items-start gap-4">
+              <li>
+                <Link
+                  onClick={toggleMobileNav}
+                  className={pathname === "/" ? active : inactive}
+                  href="/"
+                >
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link
+                  onClick={toggleMobileNav}
+                  className={pathname === "/allproducts" ? active : inactive}
+                  href="/allproducts"
+                >
+                  All Products
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  onClick={toggleMobileNav}
+                  className={pathname === "/about" ? active : inactive}
+                  href="/about"
+                >
+                  About
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  onClick={toggleMobileNav}
+                  className={pathname === "/contact" ? active : inactive}
+                  href="/contact"
+                >
+                  Contact us
+                </Link>
+              </li>
+            </ul>
+          </div>
+        )}
       </div>
     </nav>
   );
