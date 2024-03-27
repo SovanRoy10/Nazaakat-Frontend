@@ -5,12 +5,14 @@ import {
   removeFromCart,
   addToCart,
   removeOneFromCart,
-  clearCart
+  clearCart,
 } from "@/features/cartSlice";
 import toast from "react-hot-toast";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Loader from "@/components/Loader";
 
 export default function Cart({ btnText = "Checkout" }) {
+  const [loading, setLoading] = useState(true);
   const router = useRouter();
   const cartItems = useSelector((state) => state.cart.cart);
   // console.log(cartItems);
@@ -46,15 +48,24 @@ export default function Cart({ btnText = "Checkout" }) {
     return total;
   };
 
-
-  useEffect(()=>{
-    if(typeof window === undefined) return;
-    if (window.location.href.includes("success")){
+  useEffect(() => {
+    setLoading(false);
+    if (typeof window === undefined) return;
+    if (window.location.href.includes("success")) {
       dispatch(clearCart());
     }
-  },[])
+  }, []);
+  if (loading)
+    return (
+      <div className="flex justify-center mt-16">
+        <Loader />
+      </div>
+    );
 
-  if (typeof window!=='undefined' && window.location.href.includes("success")) {
+  if (
+    typeof window !== "undefined" &&
+    window.location.href.includes("success")
+  ) {
     return (
       <div className="text-3xl text-center flex flex-col gap-10 my-16">
         <p className="font-bold">Thanks for your order! 🎉</p>

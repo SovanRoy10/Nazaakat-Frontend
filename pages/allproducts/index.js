@@ -3,6 +3,8 @@ import ProductPage from "@/components/Product";
 import { Product } from "@/models/Product";
 import Loader from "@/components/Loader";
 
+import { useState, useEffect } from "react";
+
 // Utility function to format price with a comma for thousands
 const formatPrice = (price) => {
   // return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -10,13 +12,24 @@ const formatPrice = (price) => {
 };
 
 export default function AllProducts({ allProducts }) {
-  if (allProducts) {
-    return (
-      <div>
-        <div>
-          {/* Mobile filter dialog */}
+  const [loading, setLoading] = useState(true);
 
-          {/* <Transition.Root show={mobileFiltersOpen} as={Fragment}>
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
+  if (loading)
+    return (
+      <div className="flex justify-center mt-16">
+        <Loader />
+      </div>
+    );
+  return (
+    <div>
+      <div>
+        {/* Mobile filter dialog */}
+
+        {/* <Transition.Root show={mobileFiltersOpen} as={Fragment}>
           <Dialog
             as="div"
             className="relative z-40 lg:hidden"
@@ -139,25 +152,25 @@ export default function AllProducts({ allProducts }) {
           </Dialog>
         </Transition.Root> */}
 
-          <main className="mx-auto max-w-7xl  lg:px-8">
-            <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10">
-              <div className="footerImage flex  items-center justify-between gap-1 mx-auto">
-                <img
-                  src="https://iili.io/J2NU3S1.png"
-                  alt="leftFooter"
-                  className="lg:w-48  drop-shadow-lg w-20"
-                />
-                <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[28px]">
-                  Our Collection
-                </h1>
-                <img
-                  src="https://iili.io/J2NUoVR.png"
-                  alt=""
-                  className="lg:w-48  drop-shadow-lg w-20"
-                />
-              </div>
+        <main className="mx-auto max-w-7xl  lg:px-8">
+          <div className="flex items-baseline justify-between border-b border-gray-200 pb-6 pt-10">
+            <div className="footerImage flex  items-center justify-between gap-1 mx-auto">
+              <img
+                src="https://iili.io/J2NU3S1.png"
+                alt="leftFooter"
+                className="lg:w-48  drop-shadow-lg w-20"
+              />
+              <h1 className="transparentHeading  md:text-5xl hover:text-[#212121] drop-shadow-lg text-[28px]">
+                Our Collection
+              </h1>
+              <img
+                src="https://iili.io/J2NUoVR.png"
+                alt=""
+                className="lg:w-48  drop-shadow-lg w-20"
+              />
+            </div>
 
-              {/* <div className="flex items-center">
+            {/* <div className="flex items-center">
               <Menu as="div" className="relative inline-block text-left">
                 <div>
                   <Menu.Button className="group inline-flex justify-center text-sm font-medium text-gray-700 hover:text-gray-900">
@@ -212,23 +225,23 @@ export default function AllProducts({ allProducts }) {
                 <FunnelIcon className="h-5 w-5" aria-hidden="true" />
               </button>
             </div> */}
-            </div>
+          </div>
 
-            <section
-              aria-labelledby="products-heading"
-              className="md:pb-24 pt-6 overflow-hidden"
-            >
-              {/* <h2 id="products-heading" className="sr-only">
+          <section
+            aria-labelledby="products-heading"
+            className="md:pb-24 pt-6 overflow-hidden"
+          >
+            {/* <h2 id="products-heading" className="sr-only">
                 Products
               </h2> */}
 
-              <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6">
-                {/* Filters */}
-                <form className="hidden lg:block border-r-2 border-gray-200 md:pr-5">
-                  {/* <h3 className="font-bold underline underline-offset-2 ">
+            <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-6">
+              {/* Filters */}
+              <form className="hidden lg:block border-r-2 border-gray-200 md:pr-5">
+                {/* <h3 className="font-bold underline underline-offset-2 ">
                   Categories
                 </h3> */}
-                  {/* <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
+                {/* <ul role="list" className="space-y-4 border-b border-gray-200 pb-6 text-sm font-medium text-gray-900">
                                     {subCategories.map((category) => (
                                         <li key={category.name}>
                                             <a href={category.href}>{category.name}</a>
@@ -236,7 +249,7 @@ export default function AllProducts({ allProducts }) {
                                     ))}
                                 </ul> */}
 
-                  {/* {filters.map((section) => (
+                {/* {filters.map((section) => (
                   <Disclosure
                     as="div"
                     key={section.id}
@@ -296,42 +309,36 @@ export default function AllProducts({ allProducts }) {
                     )}
                   </Disclosure>
                 ))} */}
-                </form>
+              </form>
 
-                {/* Product grid */}
-                <div className="lg:col-span-5">
-                  <div className="grid md:grid-cols-3 md:grid-rows-3 ">
-                    {allProducts.map((product, index) => {
-                      // console.log(product)
-                      return (
-                        <ProductPage
-                          key={product._id}
-                          title={product.title}
-                          price={formatPrice(product.price)}
-                          description={product.description}
-                          images={product.images[0]}
-                          // prevPrice={product.mrp}
-                          rating={product.productRating}
-                          id={product._id}
-                          offer={product.offer}
-                          category={product.category}
-                          width={72}
-                          height={72}
-                        />
-                      );
-                    })}
-                  </div>
+              {/* Product grid */}
+              <div className="lg:col-span-5">
+                <div className="grid md:grid-cols-3 md:grid-rows-3 ">
+                  {allProducts.map((product, index) => {
+                    // console.log(product)
+                    return (
+                      <ProductPage
+                        key={product._id}
+                        title={product.title}
+                        price={formatPrice(product.price)}
+                        description={product.description}
+                        images={product.images[0]}
+                        // prevPrice={product.mrp}
+                        rating={product.productRating}
+                        id={product._id}
+                        offer={product.offer}
+                        category={product.category}
+                        width={72}
+                        height={72}
+                      />
+                    );
+                  })}
                 </div>
               </div>
-            </section>
-          </main>
-        </div>
+            </div>
+          </section>
+        </main>
       </div>
-    );
-  }
-  return (
-    <div className="flex items-center justify-center mt-20">
-      <Loader />
     </div>
   );
 }

@@ -27,6 +27,10 @@ import "swiper/css/navigation";
 
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
 
+import Loader from "@/components/Loader";
+
+import { useEffect } from "react";
+
 const product = {
   name: "Basic Tee 6-Pack",
   price: "₹192",
@@ -77,6 +81,12 @@ const product = {
 
 export default function ProductDetails({ product, category }) {
   // console.log(product);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const dispatch = useDispatch();
   const handleAddToCart = (id, title, description, price, image) => {
     price = parseInt(price);
@@ -91,8 +101,12 @@ export default function ProductDetails({ product, category }) {
     setCoverImage(image);
   };
 
-  // if (loading) return <Loader />;
-  // else {
+  if (loading)
+    return (
+      <div className="flex justify-center mt-16">
+        <Loader />
+      </div>
+    );
 
   const fixSizes = (size) => {
     size = size.toLowerCase();
@@ -347,7 +361,7 @@ export default function ProductDetails({ product, category }) {
 
               <div id="sizes" className="text-xl font-bold mt-5">
                 Size :
-                <div  className="flex gap-5 py-3">
+                <div className="flex gap-5 py-3">
                   {sizes.map((size, index) => {
                     return (
                       <div

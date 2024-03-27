@@ -3,6 +3,9 @@ import { Grid, Box, TextField } from "@mui/material";
 import { useSelector } from "react-redux";
 import { useSession } from "next-auth/react";
 import axios from "axios";
+import Loader from "@/components/Loader";
+
+import { useState, useEffect } from "react";
 
 export default function DeliveryAddressForm() {
   const cartItems = useSelector((state) => state.cart.cart);
@@ -11,6 +14,13 @@ export default function DeliveryAddressForm() {
   //   console.log(cartItemIds)
 
   const { data: session } = useSession();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(false); 
+  }, []);
+
+  if(loading) return <div className="flex justify-center mt-16"><Loader/></div>
 
   if (session) {
     const handleSubmit = async (e) => {
