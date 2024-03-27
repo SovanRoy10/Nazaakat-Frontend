@@ -5,6 +5,7 @@ import Step from "@mui/material/Step";
 import StepLabel from "@mui/material/StepLabel";
 import { useRouter } from "next/router";
 import DeliveryAddressForm from "@/components/DeliveryAddressForm";
+import LayoutPage from "@/components/Layout";
 
 const steps = ["Login", "Delivery address", "Payment"];
 
@@ -20,23 +21,25 @@ export default function CheckOut() {
   const parsedStep = !isNaN(step) ? step : 0;
 
   return (
-    <div className="px-10 lg:px-20 mt-10">
-      <Box sx={{ width: "100%" }}>
-        <Stepper activeStep={parsedStep}>
-          {steps.map((label, index) => {
-            const stepProps = {};
-            const labelProps = {};
+    <LayoutPage>
+      <div className="px-10 lg:px-20 mt-10">
+        <Box sx={{ width: "100%" }}>
+          <Stepper activeStep={parsedStep}>
+            {steps.map((label, index) => {
+              const stepProps = {};
+              const labelProps = {};
 
-            return (
-              <Step key={label} {...stepProps}>
-                <StepLabel {...labelProps}>{label}</StepLabel>
-              </Step>
-            );
-          })}
-        </Stepper>
+              return (
+                <Step key={label} {...stepProps}>
+                  <StepLabel {...labelProps}>{label}</StepLabel>
+                </Step>
+              );
+            })}
+          </Stepper>
 
-        <div>{step === 1 && <DeliveryAddressForm />}</div>
-      </Box>
-    </div>
+          <div>{step === 1 && <DeliveryAddressForm />}</div>
+        </Box>
+      </div>
+    </LayoutPage>
   );
 }
