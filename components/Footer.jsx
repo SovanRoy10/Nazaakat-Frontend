@@ -6,7 +6,7 @@ export default function Footer() {
           <img
             src="https://iili.io/J2NU3S1.png"
             alt="leftFooter"
-            className="lg:w-48  drop-shadow-lg w-32"
+            className="lg:w-48  drop-shadow-lg w-24"
           />
           <img
             src="https://iili.io/J2NS6Ml.png"
@@ -16,7 +16,7 @@ export default function Footer() {
           <img
             src="https://iili.io/J2NUoVR.png"
             alt=""
-            className="lg:w-48  drop-shadow-lg w-32"
+            className="lg:w-48  drop-shadow-lg w-24"
           />
         </div>
       </div>
