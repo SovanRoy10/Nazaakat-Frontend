@@ -53,7 +53,7 @@ export default function Contact() {
   }, []);
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col overflow-hidden">
       <div id="main" className="bg-black">
         <div id="second">
           <div className="elem">
