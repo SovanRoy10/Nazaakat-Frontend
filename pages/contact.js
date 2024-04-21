@@ -5,7 +5,6 @@ import HeadingText from "@/components/HeadingText";
 import gsap from "gsap";
 import Power3 from "gsap";
 
-import { mailer } from "@/actions/mailer";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
@@ -83,7 +82,7 @@ export default function Contact() {
       );
       if (response.status === 200) {
         toast.success("Message sent successfully");
-        setFormData({ senderEmail: "", message: "" });
+        setFormData({ email: "", message: "" });
       } else {
         toast.error("Failed to send message");
       }
@@ -162,7 +161,7 @@ export default function Contact() {
                 className="shadow-sm  border   text-sm rounded-lg  block w-full p-2.5"
                 placeholder="example@gmail.com"
                 required
-                value={formData.senderEmail}
+                value={formData.email}
                 onChange={handleInputChange}
                 name="email"
               />
