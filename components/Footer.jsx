@@ -112,7 +112,7 @@ export default function Footer() {
               © 2024 Nazaakat . All Rights Reserved.
             </span>
             <div className="flex mt-4 space-x-5 sm:justify-center md:mt-0">
-              <a href="https://www.facebook.com/profile.php?id=61556780744950&mibextid=ZbWKwL" >
+              <a href="https://www.facebook.com/profile.php?id=61556780744950&mibextid=ZbWKwL" target="_blank" >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -132,7 +132,7 @@ export default function Footer() {
                 </svg>
                 <span className="sr-only">Facebook</span>
               </a>
-              <a href="https://www.instagram.com/giftcrafters1?utm_source=qr&igsh=eXZvcGh0czZ5N3h4" >
+              <a href="https://www.instagram.com/giftcrafters1?utm_source=qr&igsh=eXZvcGh0czZ5N3h4"  target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"
@@ -192,7 +192,7 @@ export default function Footer() {
 
                 <span className="sr-only">Instagram</span>
               </a>
-              <a href="">
+              <a href="https://wa.me/message/SLVRRWABAX5ZE1" target="_blank">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   x="0px"

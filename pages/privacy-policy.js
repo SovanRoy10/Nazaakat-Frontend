@@ -4,11 +4,11 @@ export default function PrivacyPolicy() {
       <h1 className="text-2xl font-bold mb-4">Privacy Policy</h1>
 
       <p className="mb-8">
-        This Privacy Policy explains how NAZAAKAT ("NAZAAKAT clothing" or "we"
+        This Privacy Policy explains how Nazaakat  ("Nazaakat  clothing" or "we"
         or "us") collects, uses, discloses and otherwise manages personal
-        information when you use the website
-        <a href="https://nazaakat-store.vercel.app/" className="text-blue-500">
-          https://nazaakat-store.vercel.app/
+        information when you use the website{" "}
+        <a target="_blank" href="https://nazaakat-store.vercel.app/" className="text-blue-500">
+         https://nazaakat-store.vercel.app/
         </a>{" "}
         to shop with us or otherwise share your sensitive personal information
         and data with us. We value our customers’ privacy and appreciate your
@@ -58,11 +58,11 @@ export default function PrivacyPolicy() {
       <p className="mb-8">
         Any personal information provided to or gathered by the Website under
         this Privacy Policy/terms of use will be stored and controlled by
-        NAZAAKAT.
+        Nazaakat .
       </p>
 
       <h2 className="text-xl font-bold mb-4">
-        What Personal Information About the Customer Does Overlay Clothing
+        What Personal Information About the Customer Does Nazaakat  Clothing
         Gather and for What Purpose?
       </h2>
 
@@ -87,7 +87,7 @@ export default function PrivacyPolicy() {
         </li>
         <li>for fraud screening and prevention purposes;</li>
         <li>for crime prevention and detection purposes;</li>
-        <li>for marketing purposes of Nazaakat's products;</li>
+        <li>for marketing purposes of Nazaakat 's products;</li>
         <li>for record-keeping purposes;</li>
         <li>
           to carry out market research so that we can improve the products and
@@ -117,10 +117,10 @@ export default function PrivacyPolicy() {
       <h2 className="text-xl font-bold mb-4">Consent to Contact Over SMS/Call</h2>
 
       <p className="mb-8">
-        If you have provided Overlaysclothing with your phone number, you
-        acknowledge and accept that Overlaysclothing may call you and/or send
+        If you have provided Nazaakat  with your phone number, you
+        acknowledge and accept that Nazaakat may call you and/or send
         SMS to inform you about your order and/or any offers. BY providing the
-        contact number, you expressly consent to Overlaysclothing contacting you
+        contact number, you expressly consent to Nazaakat contacting you
         for the said purposes even if your number is registered with the
         National Do Not Call Registry / registered for DND.
       </p>
@@ -128,7 +128,7 @@ export default function PrivacyPolicy() {
       <h2 className="text-xl font-bold mb-4">Information That Is Collected</h2>
 
       <p className="mb-8">
-        Here are the types of information Overlaysclothing gathers:
+        Here are the types of information Nazaakat gathers:
       </p>
 
       <p className="mb-8">
@@ -137,18 +137,18 @@ export default function PrivacyPolicy() {
         way including personal information. You can choose not to provide
         certain information but then you might not be able to take advantage of
         many of our features and the shopping experience may not be optimized
-        for you. Overlaysclothing uses the information that you provide for
+        for you. Nazaakat uses the information that you provide for
         purposes such as responding to your requests, customizing future
         shopping for you, improving our platform, and communicating with you.
       </p>
 
       <p className="mb-8">
-        <strong>Automatic Information:</strong> Overlaysclothing receives and
+        <strong>Automatic Information:</strong> Nazaakat receives and
         stores certain types of information whenever you interact with us. For
         example, like many websites, we use "cookies" and we obtain certain
         types of information when your Web browser accesses the Website or
         advertisements and other content served by or on behalf of the Website
-        on other Web sites. Overlaysclothing may also receive/store information
+        on other Web sites. Nazaakat may also receive/store information
         about your location and your mobile device, including a unique
         identifier for your device. We may use this information for internal
         analysis and to provide you with location-based services, such as
@@ -156,16 +156,16 @@ export default function PrivacyPolicy() {
       </p>
 
       <p className="mb-8">
-        <strong>Email Communications:</strong> To help Overlaysclothing make
+        <strong>Email Communications:</strong> To help Nazaakat make
         emails more useful and interesting, we often receive a confirmation when
-        you open email from Overlaysclothing if your computer supports such
+        you open email from Nazaakat if your computer supports such
         capabilities. In case you do not want to receive the emails, you may
         unsubscribe from the mailing list anytime.
       </p>
 
       <p className="mb-8">
         <strong>Information from Other Sources:</strong> By using or continuing
-        to use the site you agree to Nazaakat's use of your information
+        to use the site you agree to Nazaakat 's use of your information
         (including sensitive personal information) in accordance with this
         Privacy Policy, as may be amended from time to time by the Website in
         its discretion. You also agree and consent to collecting, storing,
@@ -183,7 +183,7 @@ export default function PrivacyPolicy() {
       </p>
 
       <p className="mb-8">
-        Additionally, Overlays Clothing collects personal customer information
+        Additionally, Nazaakat Clothing collects personal customer information
         which is shared with Facebook in an effort to serve more relevant ads
         and improve our customer experience.
       </p>
@@ -225,12 +225,12 @@ export default function PrivacyPolicy() {
       </p>
 
       <h2 className="text-xl font-bold mb-4">
-        How Does Overlays Clothing Use the Personal Information It Collects
+        How Does Nazaakat Clothing Use the Personal Information It Collects
         About Customers?
       </h2>
 
       <p className="mb-8">
-        Overlaysclothing uses information about our customers for the specific
+        Nazaakat uses information about our customers for the specific
         purpose for which it was collected. For example, we may use information:
       </p>
 
@@ -261,22 +261,22 @@ export default function PrivacyPolicy() {
       </ul>
 
       <p className="mb-8">
-        Overlaysclothing does not collect or share any information except for
+        Nazaakat does not collect or share any information except for
         the purpose consented to or which is incidental to or connected with
         such purpose as disclosed in this privacy policy for which consent is
         taken from the customers. In addition, if you supply us with your postal
-        address online and request to receive postal mail from Overlaysclothing,
+        address online and request to receive postal mail from Nazaakat ,
         we may send you periodic mailings with information regarding a new
         collection, new products, new store locations, or upcoming promotional
         offers or events. Sometimes we also send offers to selected groups of
-        Overlaysclothing customers on behalf of other businesses/affiliates.
+        Nazaakat customers on behalf of other businesses/affiliates.
         When we do this, we do not give that business your name and address. If
         you do not wish to receive such mailings and email updates please click
         unsubscribe given at the bottom of our emails.
       </p>
 
       <h2 className="text-xl font-bold mb-4">
-        How Does Overlays Clothing Disclose the Personal Information It Collects
+        How Does Nazaakat Clothing Disclose the Personal Information It Collects
         About Customers?
       </h2>
 
@@ -319,7 +319,7 @@ export default function PrivacyPolicy() {
       </p>
 
       <p className="mb-8">
-        In case Overlaysclothing, or substantially all of its assets are
+        In case Nazaakat , or substantially all of its assets are
         acquired or proposed to be acquired by one or more third parties as a
         result of a merger, sale, consolidation or liquidation, customer
         information may be disclosed in connection therewith.
@@ -405,10 +405,10 @@ export default function PrivacyPolicy() {
 
       <h2 className="text-xl font-bold mb-4">Right to be Forgotten</h2>
       <p className="mb-8">
-        Overlays Clothing has the utmost regard for your privacy and in case you
+        Nazaakat Clothing has the utmost regard for your privacy and in case you
         want to exercise the 'right to be forgotten', please contact us at{" "}
-        <a href="mailto:mailto:roysovan00@gmail.com" className="text-blue-500">
-        roysovan00@gmail.com
+        <a href="mailto:mailto:nazaakat99@gmail.com" className="text-blue-500">
+        nazaakat99@gmail.com
         </a>
         .
       </p>
@@ -418,13 +418,14 @@ export default function PrivacyPolicy() {
       <p>
         If you have any questions regarding our Privacy Policy, please contact
         us at{" "}
-        <a href="mailto:mailto:roysovan00@gmail.com" className="text-blue-500">
-          roysovan00@gmail.com
+        <a href="mailto:mailto:nazaakat99@gmail.com" className="text-blue-500">
+        nazaakat99@gmail.com
         </a>{" "}
         or by mail at the following address:
       </p>
 
-      <p className="mb-8">Logix City Center, Sector 32 Noida 201301.</p>
+      <p className="mb-2">286, Purba Sinthee Bye Ln, Purba Sinthi, Dum Dum, Kolkata, West Bengal 700030</p>
+      <p className="mb-8">Phone Number : +919674707842</p>
     </div>
   );
 }

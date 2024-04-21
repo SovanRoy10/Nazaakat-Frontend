@@ -4,14 +4,14 @@ export default function RefundPolicy() {
       <h1 className="text-3xl font-semibold mb-8">Refund Policy</h1>
 
       <p className="mb-4">
-        Thank you for shopping at Overlays Clothing. If you are not entirely
+        Thank you for shopping at Nazaakat Clothing. If you are not entirely
         satisfied with your purchase, we're here to help.
       </p>
 
       <p className="mb-4">
         Order once placed can only be cancelled within 4 hours from the placing
         the order, you can write to our customer support team on
-        corporate@bongmade.com or call us on 9051654008 In such cases, the order
+        nazaakat99@gmail.com or call us on 9674707842 In such cases, the order
         will be cancelled and the money will be refunded to you within 48-72
         business hours after the cancellation request. Returns is a scheme
         provided by the seller directly under this policy in terms of which the
@@ -150,12 +150,12 @@ export default function RefundPolicy() {
         </li>
         <li>
           To request a refund, simply email us at{" "}
-          <a href="mailto:corporate@bongmade.com" className="text-blue-500">
-            corporate@bongmade.com
+          <a href="mailto:nazaakat99@gmail.com" className="text-blue-500">
+          nazaakat99@gmail.com
           </a>{" "}
           OR call us at{" "}
-          <a href="tel:9051654008" className="text-blue-500">
-            9051654008
+          <a href="tel:9674707842" className="text-blue-500">
+          9674707842
           </a>{" "}
           and provide your order details, including the reason why you’re
           requesting a refund. We take customer feedback very seriously and use

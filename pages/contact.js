@@ -69,7 +69,6 @@ export default function Contact() {
     }));
   };
 
-
   const handleSubmitForm = async (e) => {
     e.preventDefault();
     try {
@@ -87,7 +86,7 @@ export default function Contact() {
         toast.error("Failed to send message");
       }
     } catch (error) {
-      toast.error("Failed to send message"+error);
+      toast.error("Failed to send message" + error);
     }
   };
 
@@ -105,7 +104,7 @@ export default function Contact() {
               <ArrowOutwardIcon />
             </div>
           </a>
-          <a href="">
+          <a href="https://wa.me/message/SLVRRWABAX5ZE1" target="_blank">
             <div className="elem">
               <img src="https://iili.io/J3CpzvV.jpg" alt="" />
               <h1>Whatsapp</h1>
