@@ -1,5 +1,5 @@
 import { useState } from "react";
-// import { RadioGroup } from "@headlessui/react";
+import { RadioGroup } from "@headlessui/react";
 // import Rating from "@mui/material/Rating";
 // import Grid from "@mui/material/Grid";
 
@@ -110,6 +110,7 @@ export default function ProductDetails({ product, category }) {
 
   const fixSizes = (size) => {
     size = size.toLowerCase();
+    size = size.trim();
     if (size === "s" || size === "small") return "S";
     if (size === "m" || size === "medium") return "M";
     if (size === "l" || size === "large") return "L";
