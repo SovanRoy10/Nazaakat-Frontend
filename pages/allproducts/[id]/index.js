@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { RadioGroup } from "@headlessui/react";
+import axios from "axios";
 // import Rating from "@mui/material/Rating";
 // import Grid from "@mui/material/Grid";
 
@@ -80,11 +81,34 @@ const product = {
 // }
 
 export default function ProductDetails({ product, category }) {
-  console.log(product);
+  // console.log(product);
   const [loading, setLoading] = useState(true);
+  const [hexColors, setHexColors] = useState([]);
 
   useEffect(() => {
     setLoading(false);
+  }, []);
+
+  useEffect(() => {
+    const colorsArray = product.colors.split(",");
+
+    const fetchColorDetails = async (color) => {
+      const trimmedColor = color.trim();
+      const colorDetails = await axios.get(
+        `https://www.csscolorsapi.com/api/colors/${trimmedColor}`
+      );
+      return colorDetails.data.data.hex;
+    };
+
+    const fetchAllColorDetails = async () => {
+      const hexColorsArray = await Promise.all(
+        colorsArray.map(fetchColorDetails)
+      );
+
+      setHexColors(hexColorsArray);
+    };
+
+    fetchAllColorDetails();
   }, []);
 
   const dispatch = useDispatch();
@@ -249,7 +273,11 @@ export default function ProductDetails({ product, category }) {
                   ₹{product.oldPrice}
                 </s>
                 <p className="text-2xl text-green-600 mt-5 tracking-tighter">
-                  {parseInt(((product.oldPrice - product.price)*100)/product.oldPrice)} % Off
+                  {parseInt(
+                    ((product.oldPrice - product.price) * 100) /
+                      product.oldPrice
+                  )}{" "}
+                  % Off
                 </p>
               </div>
 
@@ -273,17 +301,16 @@ export default function ProductDetails({ product, category }) {
 
               <form className="mt-10">
                 {/* Colors */}
-                <div id="sizes" className="text-xl font-bold mt-5">
+                <div id="color" className="text-xl font-bold mt-5">
                   Color :
                   <div className="flex gap-5 py-3">
-                    {colors.map((color, index) => {
+                    {hexColors.map((color, index) => {
                       return (
                         <div
                           key={color}
-                          className="font-bold  border border-black px-3 py-1 rounded text-base hover:bg-gray-300"
-                        >
-                          {color}
-                        </div>
+                          className="font-bold border border-black px-3 py-1 rounded text-base md:h-7 md:w-7 h-5 w-5"
+                          style={{ backgroundColor: `#${color}` }}
+                        ></div>
                       );
                     })}
                   </div>
