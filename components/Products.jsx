@@ -40,6 +40,7 @@ export default function Products({ products }) {
                 category={product.category}
                 width={96}
                 height={96}
+                oldPrice={product.oldPrice}
               />
             );
           })}
