@@ -80,7 +80,7 @@ const product = {
 // }
 
 export default function ProductDetails({ product, category }) {
-  // console.log(product);
+  console.log(product);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -122,6 +122,7 @@ export default function ProductDetails({ product, category }) {
 
   const sizes = product.sizes.split(",").map((size) => fixSizes(size));
   const colors = product.colors.split(",");
+  // console.log(colors)
 
   return (
     <div>
@@ -245,10 +246,10 @@ export default function ProductDetails({ product, category }) {
                   ₹{product.price}
                 </p>
                 <s className="text-3xl tracking-tight text-gray-900 mt-5 opacity-60 ">
-                  ₹{product.price}
+                  ₹{product.oldPrice}
                 </s>
                 <p className="text-2xl text-green-600 mt-5 tracking-tighter">
-                  20 % Off
+                  {parseInt(((product.oldPrice - product.price)*100)/product.oldPrice)} % Off
                 </p>
               </div>
 
@@ -272,46 +273,21 @@ export default function ProductDetails({ product, category }) {
 
               <form className="mt-10">
                 {/* Colors */}
-                {/* <div>
-                    <h3 className="text-base font-bold text-gray-900">Color</h3>
-
-                    <RadioGroup
-                      value={selectedColor}
-                      onChange={setSelectedColor}
-                      className="mt-4"
-                    >
-                      <RadioGroup.Label className="sr-only">
-                        Choose a color
-                      </RadioGroup.Label>
-                      <div className="flex items-center space-x-3">
-                        {product.colors.map((color) => (
-                          <RadioGroup.Option
-                            key={color.name}
-                            value={color}
-                            className={({ active, checked }) =>
-                              classNames(
-                                color.selectedClass,
-                                active && checked ? "ring ring-offset-1" : "",
-                                !active && checked ? "ring-2" : "",
-                                "relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none"
-                              )
-                            }
-                          >
-                            <RadioGroup.Label as="span" className="sr-only">
-                              {color.name}
-                            </RadioGroup.Label>
-                            <span
-                              aria-hidden="true"
-                              className={classNames(
-                                color.class,
-                                "h-8 w-8 rounded-full border border-black border-opacity-10"
-                              )}
-                            />
-                          </RadioGroup.Option>
-                        ))}
-                      </div>
-                    </RadioGroup>
-                  </div> */}
+                <div id="sizes" className="text-xl font-bold mt-5">
+                  Color :
+                  <div className="flex gap-5 py-3">
+                    {colors.map((color, index) => {
+                      return (
+                        <div
+                          key={color}
+                          className="font-bold  border border-black px-3 py-1 rounded text-base hover:bg-gray-300"
+                        >
+                          {color}
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </form>
               <button
                 onClick={() =>
