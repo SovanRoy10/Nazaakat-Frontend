@@ -323,7 +323,7 @@ export default function AllProducts({ allProducts }) {
                         price={formatPrice(product.price)}
                         description={product.description}
                         images={product.images[0]}
-                        // prevPrice={product.mrp}
+                        oldPrice = {product.oldPrice}
                         rating={product.productRating}
                         id={product._id}
                         offer={product.offer}
