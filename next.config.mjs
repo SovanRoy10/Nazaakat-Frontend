@@ -8,6 +8,7 @@ const nextConfig = {
       "res.cloudinary.com",
       "iili.io",
       "images.pexels.com",
+      "m.media-amazon.com"
     ],
   },
   

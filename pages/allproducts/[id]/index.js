@@ -91,12 +91,13 @@ export default function ProductDetails({ product, category }) {
 
   useEffect(() => {
     const colorsArray = product.colors.split(",");
-
+    setLoading(true);
     const fetchColorDetails = async (color) => {
       const trimmedColor = color.trim();
       const colorDetails = await axios.get(
         `https://www.csscolorsapi.com/api/colors/${trimmedColor}`
       );
+      setLoading(false);
       return colorDetails.data.data.hex;
     };
 
@@ -303,17 +304,24 @@ export default function ProductDetails({ product, category }) {
                 {/* Colors */}
                 <div id="color" className="text-xl font-bold mt-5">
                   Color :
-                  <div className="flex gap-5 py-3">
-                    {hexColors.map((color, index) => {
-                      return (
-                        <div
-                          key={color}
-                          className="font-bold border border-black px-3 py-1 rounded text-base md:h-7 md:w-7 h-5 w-5"
-                          style={{ backgroundColor: `#${color}` }}
-                        ></div>
-                      );
-                    })}
-                  </div>
+                  {loading && (
+                    <div>
+                      <Loader />
+                    </div>
+                  )}
+                  {!loading && (
+                    <div className="flex gap-5 py-3">
+                      {hexColors.map((color, index) => {
+                        return (
+                          <div
+                            key={color}
+                            className="font-bold border border-black px-3 py-1 rounded text-base md:h-7 md:w-7 h-5 w-5"
+                            style={{ backgroundColor: `#${color}` }}
+                          ></div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
               </form>
               <button
