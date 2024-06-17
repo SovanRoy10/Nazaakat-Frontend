@@ -40,7 +40,7 @@ export default function Product(props) {
                 <span className="mr-2">
                   ₹{parseInt(props.price).toFixed(2)}
                 </span>
-                <s> ₹{parseInt(props.price).toFixed(2)}</s>
+                <s> ₹{parseInt(props.oldPrice).toFixed(2)}</s>
               </p>
             </div>
             <p className="font-sans text-xs md:text-sm font-normal leading-normal text-black antialiased opacity-95 flex justify-between ">
