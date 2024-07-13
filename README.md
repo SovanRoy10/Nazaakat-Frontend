@@ -23,6 +23,7 @@ Admin Page: [Nazaakat Admin](https://nazakaat-admin.vercel.app/)
 - **Order Management**: Admin can view previous orders.
 - **Image Storage**: Integrated with Cloudinary to store product images.
 - **Secure Payments**: Integrated Stripe Payment Gateway for secure payment processing.
+- **Contact Form**: Integrated NodeMailer for handling contact form submissions.
 
 ## Development
 

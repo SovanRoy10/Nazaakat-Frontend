@@ -7,7 +7,7 @@ export default function Hero(props) {
       <div className="mt-10 md:mt-16 md:w-1/2 max-w-[800px] w-full">
         <p className="md:text-[70px] font-extrabold tracking-tighter text-[25px]">
           Discover Elegance: <span className="textBackground">Nazaakat</span> -
-          Your Exquisite <span className="textBackground">Jewelry </span>
+          Your Exquisite <span className="textBackground">Tshirt </span>
           Destination
         </p>
         <div className="md:text-2xl mt-5 text-gray-500">
