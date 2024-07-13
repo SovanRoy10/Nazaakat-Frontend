@@ -163,7 +163,7 @@ export default function TextGoing() {
             <div className="elem1">
               <div className="photo">
                 <img
-                  src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                  src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                   alt=""
                 />
               </div>
@@ -174,7 +174,7 @@ export default function TextGoing() {
             <div className="elem1">
               <div className="photo">
                 <img
-                  src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                  src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                   alt=""
                 />
               </div>
@@ -185,7 +185,7 @@ export default function TextGoing() {
             <div className="elem1">
               <div className="photo">
                 <img
-                  src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                  src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                   alt=""
                 />
               </div>
@@ -196,7 +196,7 @@ export default function TextGoing() {
             <div className="elem1">
               <div className="photo">
                 <img
-                  src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                  src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                   alt=""
                 />
               </div>
@@ -207,7 +207,7 @@ export default function TextGoing() {
             <div className="elem1">
               <div className="photo">
                 <img
-                  src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                  src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                   alt=""
                 />
               </div>
@@ -221,7 +221,7 @@ export default function TextGoing() {
           <div className="elem1">
             <div className="photo">
               <img
-                src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                 alt=""
               />
             </div>
@@ -232,7 +232,7 @@ export default function TextGoing() {
           <div className="elem1">
             <div className="photo">
               <img
-                src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                 alt=""
               />
             </div>
@@ -243,7 +243,7 @@ export default function TextGoing() {
           <div className="elem1">
             <div className="photo">
               <img
-                src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                 alt=""
               />
             </div>
@@ -254,7 +254,7 @@ export default function TextGoing() {
           <div className="elem1">
             <div className="photo">
               <img
-                src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                 alt=""
               />
             </div>
@@ -265,7 +265,7 @@ export default function TextGoing() {
           <div className="elem1">
             <div className="photo">
               <img
-                src="https://images.unsplash.com/photo-1648291531524-97afa1c2ac30?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8amh1bWthfGVufDB8fDB8fHww&auto=format&fit=crop&w=400&q=60"
+                src="https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1720806427_3261097.jpg?format=webp&w=480&dpr=1.3"
                 alt=""
               />
             </div>
