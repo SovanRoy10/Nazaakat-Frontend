@@ -73,10 +73,6 @@ To run this project locally, follow these steps:
 
 If you want to contribute to this project, please fork the repository and create a pull request with your changes. For major changes, please open an issue first to discuss what you would like to change.
 
-## License
-
-This project is licensed under the MIT License.
-
 ---
 
-Feel free to reach out if you have any questions or suggestions. Enjoy shopping at **Nazaakat Store**!
+Feel free to reach out if you have any questions or suggestions. Enjoy shopping at **Nazaakat Store**! 🚀
