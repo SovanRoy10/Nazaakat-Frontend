@@ -96,6 +96,10 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
+console.log("Razorpay Key ID:", process.env.RAZORPAY_KEY_ID);
+console.log("Razorpay Key Secret:", process.env.RAZORPAY_KEY_SECRET);
+
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(400).json("Only POST method is allowed.");
