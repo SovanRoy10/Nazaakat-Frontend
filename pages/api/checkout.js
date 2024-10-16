@@ -96,39 +96,33 @@ const razorpay = new Razorpay({
   key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-console.log("Razorpay Key ID:", process.env.RAZORPAY_KEY_ID);
-console.log("Razorpay Key Secret:", process.env.RAZORPAY_KEY_SECRET);
-
-
 export default async function handler(req, res) {
   if (req.method !== "POST") {
-    res.status(400).json("Only POST method is allowed.");
-    return;
+    return res.status(400).json("Only POST method is allowed.");
   }
 
   const { firstName, lastName, address, city, state, zip, phoneNumber, products, email } = req.body;
 
-  // console.log("Request Body:", req.body); // Log incoming request
+  // Validate input data
+  if (!firstName || !lastName || !address || !city || !state || !zip || !phoneNumber || !products || !email) {
+    return res.status(400).json({ error: "All fields are required." });
+  }
 
   await mongooseConnect();
 
-  const productIds = products;
-  const uniqueIds = [...new Set(productIds)];
-
+  const uniqueIds = [...new Set(products)];
+  
   // Fetch product details for unique IDs
   const productInfos = await Product.find({ _id: uniqueIds });
 
-  // console.log("Product Info Retrieved:", productInfos); // Log fetched product info
-
   let totalAmount = 0;
 
-  const line_items = productIds.map((productId) => {
-    const productInfo = productInfos.find((p) => p._id.toString() === productId);
-    const quantity = productIds.filter((id) => id === productId).length || 0;
+  const line_items = productInfos.map((productInfo) => {
+    const quantity = products.filter((id) => id === productInfo._id.toString()).length;
 
-    if (productInfo && quantity > 0) {
-      const amountForThisProduct = productInfo.price * quantity; // Calculate total price for this product
-      totalAmount += amountForThisProduct; // Update total amount
+    if (quantity > 0) {
+      const amountForThisProduct = productInfo.price * quantity;
+      totalAmount += amountForThisProduct;
 
       return {
         quantity,
@@ -140,46 +134,53 @@ export default async function handler(req, res) {
           unit_amount: productInfo.price * 100, // Price in paise
         },
       };
-    } else {
-      console.error(`Product not found or quantity is zero for productId: ${productId}`, productInfo);
-      return null; // Return null if productInfo is not found
     }
-  }).filter(Boolean); // Filter out any undefined entries
-
-  // console.log("Line Items:", line_items); // Log line items before creating order
+    return null; // Skip if quantity is zero
+  }).filter(Boolean); // Filter out null values
 
   // Create the order in the database
-  const orderDoc = await Order.create({
-    line_items,
-    firstName,
-    lastName,
-    address,
-    city,
-    state,
-    zip,
-    phoneNumber,
-    email,
-    paid: false,
+ // Step 1: Create the Order document in MongoDB without orderId initially
+const orderDoc = await Order.create({
+  orderId: `temp_${new Date().getTime()}`,
+  line_items,
+  firstName,
+  lastName,
+  address,
+  city,
+  state,
+  zip,
+  phoneNumber,
+  email,
+  paid: false,
+});
+
+// Step 2: Create a Razorpay order
+const options = {
+  amount: totalAmount * 100, // Razorpay expects the amount in paise
+  currency: "INR",
+  receipt: `order_${orderDoc._id}`, // Use the MongoDB _id as receipt
+};
+
+try {
+  // Step 3: Generate a Razorpay order
+  const razorpayOrder = await razorpay.orders.create(options);
+
+  // Step 4: Update the MongoDB Order document with the Razorpay orderId
+  orderDoc.orderId = razorpayOrder.id; // Assign Razorpay orderId to the orderDoc
+  await orderDoc.save(); // Explicitly save the updated document to MongoDB
+
+  // Step 5: Send the Razorpay order details to the frontend
+  res.json({
+    orderId: razorpayOrder.id, // Use Razorpay orderId
+    orderDocId: orderDoc._id, // MongoDB _id
+    amount: totalAmount,
+    currency: options.currency,
   });
+} catch (error) {
+  console.error("Razorpay Error:", error);
+  res.status(500).json({ error: "Something went wrong with Razorpay." });
+}
 
-  // Now, create a Razorpay order using the totalAmount
-  const options = {
-    amount: totalAmount * 100, // Razorpay expects the amount in paise (so multiply INR by 100)
-    currency: "INR",
-    receipt: `order_${orderDoc._id}`,
-  };
 
-  // console.log("Razorpay Options:", options); // Log options for Razorpay
 
-  try {
-    const order = await razorpay.orders.create(options);
-    res.json({
-      orderId: order.id,
-      orderDocId: orderDoc._id,
-      amount: totalAmount,
-    });
-  } catch (error) {
-    console.error("Razorpay Error:", error);
-    res.status(500).json({ error: "Something went wrong with Razorpay." });
-  }
 }
