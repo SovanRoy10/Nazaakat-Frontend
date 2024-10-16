@@ -17,7 +17,7 @@ const orderSchema = new mongoose.Schema(
     phoneNumber: Number,
     paid: {
       type: Boolean,
-      default: false, // Default to false if not paid
+      default: false, 
     },
     paymentId: {
       type: String,

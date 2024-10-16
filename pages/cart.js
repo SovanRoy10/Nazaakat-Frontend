@@ -19,10 +19,10 @@ export default function Cart({ btnText = "Checkout" }) {
 
   const dispatch = useDispatch();
 
-  const handleAddToCart = (id, title, description, price, image) => {
-    dispatch(addToCart({ id, title, description, price, image }));
-    toast.success("Item added to cart");
-  };
+ const handleAddToCart = (id, title, description, price, oldPrice, offer, image) => {
+  dispatch(addToCart({ id, title, description, price, oldPrice, offer, image }));
+  toast.success("Item added to cart");
+};
 
   const handleRemoveOneItem = (id) => {
     dispatch(removeOneFromCart(id));

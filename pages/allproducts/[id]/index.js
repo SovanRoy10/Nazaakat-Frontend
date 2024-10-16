@@ -19,6 +19,7 @@ import { addToCart } from "@/features/cartSlice";
 import { mongooseConnect } from "@/lib/mongoose";
 import { Product } from "@/models/Product";
 import { Category } from "@/models/Category";
+import toast from "react-hot-toast";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
@@ -32,49 +33,49 @@ import Loader from "@/components/Loader";
 
 import { useEffect } from "react";
 
-const product = {
-  name: "Basic Tee 6-Pack",
-  price: "₹192",
-  href: "#",
-  breadcrumbs: [
-    { id: 1, name: "Men", href: "#" },
-    { id: 2, name: "Clothing", href: "#" },
-  ],
-  images: [
-    {
-      src: "https://images.pexels.com/photos/12737493/pexels-photo-12737493.jpeg?auto=compress&cs=tinysrgb&w=400",
-      alt: "Two each of gray, white, and black shirts laying flat.",
-    },
-    {
-      src: "https://media.istockphoto.com/id/1485808407/photo/earrings-displayed-for-sell.jpg?b=1&s=612x612&w=0&k=20&c=9Rwz793y36JdWafzTrB98L34TU8frCXQ55M8IQt9j6s=",
-      alt: "Model wearing plain black basic tee.",
-    },
-    {
-      src: "https://media.istockphoto.com/id/1427167656/photo/beautiful-earring-for-girls-and-women-beads-alloy-jhumki-earring.jpg?b=1&s=612x612&w=0&k=20&c=RhGMaRUA8RWBvFxVg6heJWNStTa6sp4RPiTs8hopTQ0=",
-      alt: "Model wearing plain gray basic tee.",
-    },
-    {
-      src: "https://media.istockphoto.com/id/1465816268/photo/indian-traditional-jewellery-displayed-in-a-street-shop-for-sale-in-pune-maharashtra-indian.jpg?b=1&s=612x612&w=0&k=20&c=NqxAzDfQCISAd3Zm5EARzhtvi27deaBlSFQkzVC9YAI=",
-      alt: "Model wearing plain white basic tee.",
-    },
-  ],
-  colors: [
-    { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
-    { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
-    { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
-  ],
+// const product = {
+//   name: "Basic Tee 6-Pack",
+//   price: "₹192",
+//   href: "#",
+//   breadcrumbs: [
+//     { id: 1, name: "Men", href: "#" },
+//     { id: 2, name: "Clothing", href: "#" },
+//   ],
+//   images: [
+//     {
+//       src: "https://images.pexels.com/photos/12737493/pexels-photo-12737493.jpeg?auto=compress&cs=tinysrgb&w=400",
+//       alt: "Two each of gray, white, and black shirts laying flat.",
+//     },
+//     {
+//       src: "https://media.istockphoto.com/id/1485808407/photo/earrings-displayed-for-sell.jpg?b=1&s=612x612&w=0&k=20&c=9Rwz793y36JdWafzTrB98L34TU8frCXQ55M8IQt9j6s=",
+//       alt: "Model wearing plain black basic tee.",
+//     },
+//     {
+//       src: "https://media.istockphoto.com/id/1427167656/photo/beautiful-earring-for-girls-and-women-beads-alloy-jhumki-earring.jpg?b=1&s=612x612&w=0&k=20&c=RhGMaRUA8RWBvFxVg6heJWNStTa6sp4RPiTs8hopTQ0=",
+//       alt: "Model wearing plain gray basic tee.",
+//     },
+//     {
+//       src: "https://media.istockphoto.com/id/1465816268/photo/indian-traditional-jewellery-displayed-in-a-street-shop-for-sale-in-pune-maharashtra-indian.jpg?b=1&s=612x612&w=0&k=20&c=NqxAzDfQCISAd3Zm5EARzhtvi27deaBlSFQkzVC9YAI=",
+//       alt: "Model wearing plain white basic tee.",
+//     },
+//   ],
+//   colors: [
+//     { name: "White", class: "bg-white", selectedClass: "ring-gray-400" },
+//     { name: "Gray", class: "bg-gray-200", selectedClass: "ring-gray-400" },
+//     { name: "Black", class: "bg-gray-900", selectedClass: "ring-gray-900" },
+//   ],
 
-  description:
-    'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
-  highlights: [
-    "Hand cut and sewn locally",
-    "Dyed with our proprietary colors",
-    "Pre-washed & pre-shrunk",
-    "Ultra-soft 100% cotton",
-  ],
-  details:
-    'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
-};
+//   description:
+//     'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
+//   highlights: [
+//     "Hand cut and sewn locally",
+//     "Dyed with our proprietary colors",
+//     "Pre-washed & pre-shrunk",
+//     "Ultra-soft 100% cotton",
+//   ],
+//   details:
+//     'The 6-Pack includes two black, two white, and two heather gray Basic Tees. Sign up for our subscription service and be the first to get new, exciting colors, like our upcoming "Charcoal Gray" limited release.',
+// };
 
 // function classNames(...classes) {
 //   return classes.filter(Boolean).join(" ");
@@ -84,6 +85,11 @@ export default function ProductDetails({ product, category }) {
   // console.log(product);
   const [loading, setLoading] = useState(true);
   const [hexColors, setHexColors] = useState([]);
+
+  // console.log(product)
+
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
 
   useEffect(() => {
     setLoading(false);
@@ -101,21 +107,35 @@ export default function ProductDetails({ product, category }) {
       return colorDetails.data.data.hex;
     };
 
-    const fetchAllColorDetails = async () => {
+   const fetchAllColorDetails = async () => {
       const hexColorsArray = await Promise.all(
         colorsArray.map(fetchColorDetails)
       );
-
-      setHexColors(hexColorsArray);
+      setHexColors(hexColorsArray.filter(Boolean)); // Filter out null values
+      setLoading(false);
     };
 
     fetchAllColorDetails();
-  }, []);
+  }, [product]);
 
   const dispatch = useDispatch();
-  const handleAddToCart = (id, title, description, price, image) => {
-    price = parseInt(price);
-    dispatch(addToCart({ id, title, description, price, image }));
+
+  const handleAddToCart = () => {
+    if (!selectedColor || !selectedSize) {
+      alert("Please select both color and size.");
+      return;
+    }
+    dispatch(
+      addToCart({
+        id: product._id,
+        title: product.title,
+        description: product.description,
+        price: parseInt(product.price),
+        image: product.images[0],
+        color: selectedColor,
+        size: selectedSize,
+      })
+    );
   };
 
   const [coverImage, setCoverImage] = useState(product.images[0]);
@@ -133,19 +153,24 @@ export default function ProductDetails({ product, category }) {
       </div>
     );
 
-  const fixSizes = (size) => {
-    size = size.toLowerCase();
-    size = size.trim();
-    if (size === "s" || size === "small") return "S";
-    if (size === "m" || size === "medium") return "M";
-    if (size === "l" || size === "large") return "L";
-    if (size === "xl" || size === "extra large") return "XL";
-    if (size === "xxl" || size === "extra extra large") return "XXL";
-    // Handle invalid sizes
-    return "I";
+ const fixSizes = (size) => {
+    size = size.toLowerCase().trim();
+    const sizeMap = {
+      s: "S",
+      small: "S",
+      m: "M",
+      medium: "M",
+      l: "L",
+      large: "L",
+      xl: "XL",
+      "extra large": "XL",
+      xxl: "XXL",
+      "extra extra large": "XXL",
+    };
+    return sizeMap[size] || "Invalid size";
   };
 
-  const sizes = product.sizes.split(",").map((size) => fixSizes(size));
+   const sizes = product?.sizes?.split(",").map(fixSizes) || [];
   const colors = product.colors.split(",");
   // console.log(colors)
 
@@ -299,45 +324,76 @@ export default function ProductDetails({ product, category }) {
                     </p>
                   </div>
                 </div> */}
+<form className="mt-10">
+  {/* Colors */}
+  <div id="color" className="text-xl font-bold mt-5">
+    Color :
+    {loading && (
+      <div>
+        <Loader />
+      </div>
+    )}
+    {!loading && (
+      <div className="flex gap-5 py-3">
+        {hexColors.map((color, index) => {
+          return (
+            <div
+              key={color}
+              className={`font-bold border px-3 py-1 rounded text-base md:h-7 md:w-7 h-5 w-5 cursor-pointer ${
+                selectedColor === color ? "border-black border-4 bg-white shadow-lg" : "border-gray-300 hover:border-black hover:border-2"
+              }`}
+              style={{ backgroundColor: `#${color}` }}
+              onClick={() => setSelectedColor(color)} // Set the selected color
+            ></div>
+          );
+        })}
+      </div>
+    )}
+  </div>
 
-              <form className="mt-10">
-                {/* Colors */}
-                <div id="color" className="text-xl font-bold mt-5">
-                  Color :
-                  {loading && (
-                    <div>
-                      <Loader />
-                    </div>
-                  )}
-                  {!loading && (
-                    <div className="flex gap-5 py-3">
-                      {hexColors.map((color, index) => {
-                        return (
-                          <div
-                            key={color}
-                            className="font-bold border border-black px-3 py-1 rounded text-base md:h-7 md:w-7 h-5 w-5"
-                            style={{ backgroundColor: `#${color}` }}
-                          ></div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              </form>
-              <button
-                onClick={() =>
-                  handleAddToCart(
-                    product._id,
-                    product.title,
-                    product.description,
-                    product.price,
-                    product.images[0]
-                  )
-                }
-                className="mt-10 flex w-full max-w-[200px] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 "
-              >
-                Add to cart
-              </button>
+  {/* Sizes */}
+  <div id="sizes" className="text-xl font-bold mt-5">
+    Size :
+    <div className="flex gap-5 py-3">
+      {sizes.map((size, index) => {
+        return (
+          <div
+            key={size}
+            className={`font-bold border px-3 py-1 rounded text-base cursor-pointer ${
+              selectedSize === size ? "bg-gray-300" : "hover:bg-gray-300"
+            }`}
+            onClick={() => setSelectedSize(size)} // Set the selected size
+          >
+            {size}
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</form>
+       <button
+  onClick={() => {
+    if (!selectedColor || !selectedSize) {
+      toast.error("Please select both color and size.");
+      return;
+    }
+    handleAddToCart(
+      product._id,
+      product.title,
+      product.description,
+      product.price,
+      product.images[0],
+      selectedColor, // Passing selected color
+      selectedSize   // Passing selected size
+    );
+    toast.success("Added to Cart");
+  }}
+  className="mt-10 flex w-full max-w-[200px] items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+>
+  Add to cart
+</button>
+
+
             </div>
 
             <div className="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6">
@@ -371,7 +427,7 @@ export default function ProductDetails({ product, category }) {
                   </div>
                 </div> */}
 
-              <div id="sizes" className="text-xl font-bold mt-5">
+              {/* <div id="sizes" className="text-xl font-bold mt-5">
                 Size :
                 <div className="flex gap-5 py-3">
                   {sizes.map((size, index) => {
@@ -385,7 +441,7 @@ export default function ProductDetails({ product, category }) {
                     );
                   })}
                 </div>
-              </div>
+              </div> */}
 
               <div className="mt-10">
                 <h2 className="text-base font-bold text-gray-900">Details</h2>
@@ -550,3 +606,9 @@ export async function getServerSideProps(context) {
     },
   };
 }
+
+
+
+
+
+

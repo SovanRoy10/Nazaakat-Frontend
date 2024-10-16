@@ -57,25 +57,36 @@ export default function Product(props) {
           </div>
         </div>
       </Link>
-      <button
-        onClick={() =>
-          handleAddToCart(
-            props.id,
-            props.title,
-            props.description,
-            props.price,
-            props.images
-          )
-        }
-        className="block w-full text-center align-middle transition-all  focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        type="button"
-      >
-        <div className="relative inline-block px-4 py-2 font-medium group w-full">
-          <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-[#c5ce9c] group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
-          <span className="absolute inset-0 w-full h-full bg-white border-2 border-[#c5ce9c] group-hover:bg-[#D4DCAE]"></span>
-          <span className="relative text-black font-bold">Add To Cart</span>
-        </div>
-      </button>
+    <button
+  onClick={() => {
+    if (!props.sizes || !props.sizes.length) {
+      toast.error("Please select a size before adding to the cart.");
+      return; // Exit the function if no size is selected
+    }
+    if (!props.colors || !props.colors.length) {
+      toast.error("Please select a color before adding to the cart.");
+      return; // Exit the function if no color is selected
+    }
+    
+    handleAddToCart(
+      props.id,
+      props.title,
+      props.description,
+      props.price,
+      props.images,
+      props.oldPrice,
+    );
+  }}
+  className="block w-full text-center align-middle transition-all focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
+  type="button"
+>
+  <div className="relative inline-block px-4 py-2 font-medium group w-full">
+    <span className="absolute inset-0 w-full h-full transition duration-200 ease-out transform translate-x-1 translate-y-1 bg-[#c5ce9c] group-hover:-translate-x-0 group-hover:-translate-y-0"></span>
+    <span className="absolute inset-0 w-full h-full bg-white border-2 border-[#c5ce9c] group-hover:bg-[#D4DCAE]"></span>
+    <span className="relative text-black font-bold">Add To Cart</span>
+  </div>
+</button>
+
     </div>
   );
 }
