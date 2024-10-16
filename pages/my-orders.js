@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Loader from "@/components/Loader";
 
 export default function MyOrders() {
   const [orders, setOrders] = useState([]);
@@ -20,12 +21,10 @@ export default function MyOrders() {
     fetchOrders();
   }, []);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+ if(loading) return <div className="flex justify-center mt-16"><Loader/></div>
 
   if (orders.length === 0) {
-    return <div>No orders found</div>;
+    return <div className='flex justify-center mt-10 md:text-2xl'>No orders found 😔</div>;
   }
 
   return (
