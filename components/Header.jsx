@@ -168,6 +168,15 @@ export default function Header() {
                 Contact us
               </Link>
             </li>
+
+              <li>
+              <Link
+                href="/my-orders"
+                className={pathname === "/my-orders" ? active : inactive}
+              >
+                My Orders
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -211,6 +220,16 @@ export default function Header() {
                   href="/contact"
                 >
                   Contact us
+                </Link>
+              </li>
+
+               <li>
+                <Link
+                  onClick={toggleMobileNav}
+                  className={pathname === "/my-orders" ? active : inactive}
+                  href="/my-orders"
+                >
+                  My Orders
                 </Link>
               </li>
             </ul>
